@@ -1,0 +1,13 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "app.moodgraph.moodgraph",
+			"sha256_cert_fingerprints": [
+				"E0:82:FE:FA:50:49:5B:76:A7:53:C2:E8:40:45:E3:29:88:AB:5E:0C:90:C0:D3:E2:16:68:F3:8B:39:02:7A:D8",
+				"21:9E:20:C2:D9:68:1D:9D:9D:6A:06:A1:E4:A0:97:12:51:5B:26:57:B5:73:FC:F3:B6:1A:51:38:82:93:C9:87"
+			]
+		}
+	}
+]

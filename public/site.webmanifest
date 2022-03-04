@@ -1,0 +1,25 @@
+{
+	"name": "Mood Graph",
+	"short_name": "Graph",
+	"display": "standalone",
+	"scope": "/",
+	"id": "/dashboard",
+	"start_url": "/dashboard",
+	"theme_color": "#8c55ff",
+	"background_color": "#221b26",
+	"description": "A simple way to track your mental health.",
+	"lang": "en-US",
+	"categories": ["health", "lifestyle", "medical", "utilities"],
+	"icons": [
+		{
+			"src": "/icons/icon-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/icons/icon-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}
