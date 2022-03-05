@@ -1,4 +1,5 @@
 import { Blog } from '../components/Blog';
+import { Footer } from '../components/Footer';
 import { MoodGraphHead } from '../components/MoodGraphHead';
 import { Navbar } from '../components/Navbar';
 import { useDefaultAuthState } from '../utils/hooks/firebase';
@@ -66,6 +67,7 @@ export default function Home() {
 					Delete Account
 				</a>
 			</Link>
+			<Footer />
 		</>
 	);
 }
