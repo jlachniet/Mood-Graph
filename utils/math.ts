@@ -1,4 +1,36 @@
+import { MovingAverageOption } from '../types/math';
 import { mean } from 'lodash';
+
+export const MOVING_AVERAGE_OPTIONS: MovingAverageOption[] = [
+	{
+		title: 'Default (No averaging)',
+		windowSize: 1,
+	},
+	{
+		title: 'Averaged over 3 days',
+		windowSize: 3,
+	},
+	{
+		title: 'Averaged over 1 week',
+		windowSize: 7,
+	},
+	{
+		title: 'Averaged over 1 month',
+		windowSize: 30,
+	},
+	{
+		title: 'Averaged over 3 months',
+		windowSize: 90,
+	},
+	{
+		title: 'Averaged over 6 months',
+		windowSize: 180,
+	},
+	{
+		title: 'Averaged over 1 year',
+		windowSize: 365,
+	},
+];
 
 /**
  * Gets the moving average of an array of numbers and/or null values.
