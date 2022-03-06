@@ -2,7 +2,7 @@ import { RelativeUrl } from '../types/url';
 import Head from 'next/head';
 import { WebApplication, WithContext } from 'schema-dts';
 
-export function MoodGraphHead(props: { title: string; url: RelativeUrl }) {
+export function Metadata(props: { title: string; url: RelativeUrl }) {
 	return (
 		<Head>
 			<title>{props.title}</title>
@@ -12,8 +12,8 @@ export function MoodGraphHead(props: { title: string; url: RelativeUrl }) {
 				content="A simple way to track your mental health."
 			/>
 			<meta name="author" content="Julian Lachniet" />
-			<meta name="color-scheme" content="dark" />
-			<meta name="theme-color" content="#8c55ff" />
+			<meta name="color-scheme" content="light" />
+			<meta name="theme-color" content="#fafafa" />
 
 			<meta property="og:title" content={props.title} />
 			<meta property="og:type" content="website" />
@@ -43,7 +43,7 @@ export function MoodGraphHead(props: { title: string; url: RelativeUrl }) {
 			<link
 				rel="mask-icon"
 				href="/icons/safari-pinned-tab.svg"
-				color="#8c55ff"
+				color="#8b5cf6"
 			/>
 
 			<link rel="canonical" href={`https://moodgraph.app${props.url}`} />
