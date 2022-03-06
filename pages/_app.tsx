@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 	initializeFirebase();
 
 	return (
-		<div className="min-h-screen bg-purple-black text-white">
+		<div className="h-full bg-neutral-200">
 			<DynamicNextNProgress
 				color="#8c55ff"
 				height={1}
