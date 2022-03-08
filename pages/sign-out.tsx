@@ -1,18 +1,18 @@
 import { LoadingIcon } from '../components/LoadingIcon';
+import { sleep } from '../utils/time';
 import { getAuth } from 'firebase/auth';
 import Router from 'next/router';
 import { useEffect } from 'react';
 
 export default function SignOut() {
 	useEffect(() => {
-		getAuth()
-			.signOut()
-			.then(() => {
-				setTimeout(() => {
-					Router.push('/');
-				}, 500);
-			});
-	});
+		(async () => {
+			await getAuth().signOut();
+			await sleep(0.5);
+
+			Router.push('/');
+		})();
+	}, []);
 
 	return (
 		<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">

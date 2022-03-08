@@ -34,11 +34,9 @@ export default function Home() {
 							<LinkPill color="bg-violet-500">Get Started</LinkPill>
 						</Link>
 					)}
-					<LinkPill color="bg-sky-500">
-						<Link href="#about">
-							<a>Learn more</a>
-						</Link>
-					</LinkPill>
+					<Link href="#about" passHref>
+						<LinkPill color="bg-sky-500">Learn More</LinkPill>
+					</Link>
 				</header>
 			</div>
 			<div className="mx-auto mb-4 max-w-2xl rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
