@@ -6,15 +6,24 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			colors: {
-				// Old
-				// primary: '#8c55ff',
-				// 'primary-light': '#9c61fa',
-				// 'primary-dark': '#5e33b8',
-				// 'purple-black': '#221b26',
-			},
 			fontFamily: {
 				display: ['Inter', 'sans-serif'],
+			},
+			animation: {
+				heartbeat: 'heartbeat 1s ease-in-out infinite',
+			},
+			keyframes: {
+				heartbeat: {
+					'0%': {
+						transform: 'scale(1)',
+					},
+					'50%': {
+						transform: 'scale(1.1)',
+					},
+					'100%': {
+						transform: 'scale(1)',
+					},
+				},
 			},
 		},
 	},

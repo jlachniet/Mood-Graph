@@ -22,7 +22,7 @@ export default function Home() {
 					<div className="mb-2">
 						<Logo width={96} height={96} className="inline-block" alt="" />
 					</div>
-					<h2 className="mb-4 font-display font-semibold">
+					<h2 className="mb-6 font-display font-semibold">
 						A simple way to track your mental health.
 					</h2>
 					{user ? (

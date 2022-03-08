@@ -1,9 +1,8 @@
-import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata';
 import { useDefaultAuthState } from '../utils/hooks/firebase';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import Router from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 export default function Login() {
