@@ -1,3 +1,25 @@
+import { LoadingIcon } from '../components/LoadingIcon';
+import { Metadata } from '../components/Metadata';
+import {
+	useAuthenticatedRoute,
+	useDefaultAuthState,
+} from '../utils/hooks/firebase';
+
 export default function Dashboard() {
-	return <p>Dashboard</p>;
+	useAuthenticatedRoute();
+
+	const [user] = useDefaultAuthState();
+
+	return (
+		<>
+			<Metadata title="Dashboard" url="/dasboard" />
+			{user ? (
+				<p>Dashboard</p>
+			) : (
+				<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+					<LoadingIcon />
+				</div>
+			)}
+		</>
+	);
 }
