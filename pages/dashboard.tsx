@@ -1,5 +1,5 @@
 import { LoadingIcon } from '../components/LoadingIcon';
-import { Metadata } from '../components/Metadata';
+import { Metadata } from '../components/Metadata/Metadata';
 import {
 	useAuthenticatedRoute,
 	useDefaultAuthState,
@@ -12,7 +12,7 @@ export default function Dashboard() {
 
 	return (
 		<>
-			<Metadata title="Dashboard" url="/dasboard" />
+			<Metadata title="Mood Graph - Dashboard" url="/dashboard" />
 			{user ? (
 				<p>Dashboard</p>
 			) : (

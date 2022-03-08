@@ -1,4 +1,4 @@
-import { RelativeUrl } from '../types/url';
+import { RelativeUrl } from '../../types/url';
 import Head from 'next/head';
 import { WebApplication, WithContext } from 'schema-dts';
 

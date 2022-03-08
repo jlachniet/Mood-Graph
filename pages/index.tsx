@@ -1,5 +1,5 @@
 import { LinkPill } from '../components/Form/LinkPill';
-import { Metadata } from '../components/Metadata';
+import { Metadata } from '../components/Metadata/Metadata';
 import { PoweredByIcon } from '../components/PoweredByIcon';
 import { UpdateCard } from '../components/UpdateCard';
 import Logo from '../public/icons/icon-responsive.svg';

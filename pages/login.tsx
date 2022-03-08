@@ -1,4 +1,4 @@
-import { Metadata } from '../components/Metadata';
+import { Metadata } from '../components/Metadata/Metadata';
 import { useDefaultAuthState } from '../utils/hooks/firebase';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import Router from 'next/router';
@@ -23,7 +23,7 @@ export default function Login() {
 			<Metadata title="Mood Graph - Login" url="/" />
 			<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
 				<main className="mx-3 h-[9.5rem] w-72 rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
-					<h1 className="font-display text-4xl font-extrabold">Login</h1>
+					<h1 className="font-display text-3xl font-extrabold">Login</h1>
 					{!user && (
 						<StyledFirebaseAuth
 							className="-mb-4"
