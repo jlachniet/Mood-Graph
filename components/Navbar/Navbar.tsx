@@ -1,7 +1,6 @@
 import Logo from '../../public/icons/icon-responsive.svg';
 import { useWindowSize } from '../../utils/hooks/window';
 import { NavbarLink } from './NavbarLink';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BsList } from 'react-icons/bs';
@@ -20,8 +19,7 @@ export function Navbar() {
 		<nav className="sticky top-0 z-10 flex min-w-[14rem] items-center justify-between border-b border-neutral-300 bg-neutral-100 py-2 pl-3 pr-4 font-display shadow-sm">
 			<Link href="/">
 				<a className="flex items-center text-xl font-extrabold">
-					<Image
-						src={Logo}
+					<Logo
 						width={20}
 						height={20}
 						className="transition hover:hue-rotate-15"

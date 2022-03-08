@@ -2,7 +2,6 @@ import { ButtonPill } from '../components/Form/ButtonPill';
 import { Metadata } from '../components/Metadata';
 import { Navbar } from '../components/Navbar/Navbar';
 import Logo from '../public/icons/icon-responsive.svg';
-import Image from 'next/image';
 import Link from 'next/link';
 import { BsHeartFill } from 'react-icons/bs';
 import { SiFirebase, SiNextdotjs, SiReact, SiTypescript } from 'react-icons/si';
@@ -18,7 +17,7 @@ export default function Home() {
 						Mood Graph
 					</h1>
 					<div className="mb-2">
-						<Image src={Logo} width={96} height={96} alt="" />
+						<Logo width={96} height={96} className="inline-block" alt="" />
 					</div>
 					<h2 className="mb-4 font-display font-semibold">
 						A simple way to track your mental health.
@@ -35,7 +34,7 @@ export default function Home() {
 					</ButtonPill>
 				</header>
 			</div>
-			<div className="mx-auto mb-4 max-w-2xl  rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
+			<div className="mx-auto mb-4 max-w-2xl rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
 				<main id="about" className="px-5 py-4">
 					<h2 className="mb-3 font-display text-4xl font-extrabold">Hello!</h2>
 					<p className="mb-4">
