@@ -26,17 +26,17 @@ export default function Home() {
 						A simple way to track your mental health.
 					</h2>
 					{user ? (
-						<Link href="/dashboard" passHref>
-							<LinkPill color="bg-violet-500">Go to Dashboard</LinkPill>
-						</Link>
+						<LinkPill href="/dashboard" color="bg-violet-500">
+							Go to Dashboard
+						</LinkPill>
 					) : (
-						<Link href="/login" passHref>
-							<LinkPill color="bg-violet-500">Get Started</LinkPill>
-						</Link>
+						<LinkPill href="/login" color="bg-violet-500">
+							Get Started
+						</LinkPill>
 					)}
-					<Link href="#about" passHref>
-						<LinkPill color="bg-sky-500">Learn More</LinkPill>
-					</Link>
+					<LinkPill href="#about" color="bg-sky-500">
+						Learn More
+					</LinkPill>
 				</header>
 			</div>
 			<div className="mx-auto mb-4 max-w-2xl rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
