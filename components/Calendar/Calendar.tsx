@@ -10,7 +10,7 @@ export function Calendar(props: {
 	const bottomRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		bottomRef.current?.scrollIntoView();
+		bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
 	}, []);
 
 	return (
