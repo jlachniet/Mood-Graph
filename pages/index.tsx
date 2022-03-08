@@ -1,12 +1,17 @@
 import { ButtonPill } from '../components/Form/ButtonPill';
 import { Metadata } from '../components/Metadata';
 import { Navbar } from '../components/Navbar/Navbar';
+import { PoweredByIcon } from '../components/PoweredByIcon';
+import { UpdateCard } from '../components/UpdateCard';
 import Logo from '../public/icons/icon-responsive.svg';
+import { useDefaultAuthState } from '../utils/hooks/firebase';
 import Link from 'next/link';
 import { BsHeartFill } from 'react-icons/bs';
 import { SiFirebase, SiNextdotjs, SiReact, SiTypescript } from 'react-icons/si';
 
 export default function Home() {
+	const [user] = useDefaultAuthState();
+
 	return (
 		<>
 			<Metadata title="Mood Graph - Home" url="/" />
@@ -23,9 +28,15 @@ export default function Home() {
 						A simple way to track your mental health.
 					</h2>
 					<ButtonPill color="bg-violet-500">
-						<Link href="/login">
-							<a>Get Started</a>
-						</Link>
+						{user ? (
+							<Link href="/dasboard">
+								<a>Go to Dashboard</a>
+							</Link>
+						) : (
+							<Link href="/login">
+								<a>Get Started</a>
+							</Link>
+						)}
 					</ButtonPill>
 					<ButtonPill color="bg-sky-500">
 						<Link href="#about">
@@ -51,7 +62,7 @@ export default function Home() {
 						<ol className="ml-4 list-decimal">
 							<li>Set up daily reminders on your device</li>
 							<li>Every night, rate your day from 1 to 5</li>
-							<li>Profit!</li>
+							<li>Track your mood over time</li>
 						</ol>
 					</div>
 					<p className="mb-4 border-b border-neutral-500 pb-4">
@@ -80,56 +91,44 @@ export default function Home() {
 						Updates:
 					</h2>
 					<ul className="mb-8 space-y-4">
-						<li className="rounded-md bg-green-200 px-3 py-2 shadow-sm shadow-black/50 transition hover:scale-[1.0125]">
-							<h3 className="font-display text-lg font-semibold">
-								Release 1.1.0
-							</h3>
-							<ul className="ml-6 list-disc">
-								<li>Major UI overhaul</li>
-								<li>Added some other new features hopefully</li>
-							</ul>
-						</li>
-						<li className="rounded-md bg-sky-200 px-3 py-2 shadow-sm shadow-black/50 transition hover:scale-[1.0125]">
-							<h3 className="font-display text-lg font-semibold">
-								Release 1.0.0
-							</h3>
-							<ul className="ml-6 list-disc">
-								<li>
-									Initial production release and first open source release.
-								</li>
-							</ul>
-						</li>
+						<UpdateCard
+							versionNumber="1.1.0"
+							releaseNotes={[
+								'Major UI overhaul.',
+								'Added some other new features hopefully.',
+							]}
+							isLatest
+						/>
+						<UpdateCard
+							versionNumber="1.0.0"
+							releaseNotes={[
+								'Initial production release and first open source release.',
+							]}
+						/>
 					</ul>
 					<h3 className="mb-1">Powered by:</h3>
 					<ul className="space-x-2">
-						<li className="inline-block">
-							<Link href="https://nextjs.org/">
-								<a>
-									<SiNextdotjs className="h-6 w-6 fill-[#222]" />
-								</a>
-							</Link>
-						</li>
-						<li className="inline-block">
-							<Link href="https://firebase.google.com/">
-								<a>
-									<SiFirebase className="h-6 w-6 fill-[#FFCA28]" />
-								</a>
-							</Link>
-						</li>
-						<li className="inline-block">
-							<Link href="https://www.typescriptlang.org/">
-								<a>
-									<SiTypescript className="h-6 w-6 fill-[#3178C6]" />
-								</a>
-							</Link>
-						</li>
-						<li className="inline-block">
-							<Link href="https://reactjs.org/">
-								<a>
-									<SiReact className="h-6 w-6 fill-[#61DAFB] brightness-90" />
-								</a>
-							</Link>
-						</li>
+						<PoweredByIcon
+							icon={SiNextdotjs}
+							url="https://nextjs.org/"
+							color="#000"
+						/>
+						<PoweredByIcon
+							icon={SiFirebase}
+							url="https://firebase.google.com/"
+							color="#ffCA28"
+						/>
+						<PoweredByIcon
+							icon={SiTypescript}
+							url="https://www.typescriptlang.org/"
+							color="#3178c6"
+						/>
+						<PoweredByIcon
+							icon={SiReact}
+							url="https://reactjs.org/"
+							color="#61DAFB"
+							brightness={0.9}
+						/>
 					</ul>
 				</main>
 				<footer className="bg-indigo-200 p-1 text-center">
