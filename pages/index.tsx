@@ -1,4 +1,4 @@
-import { ButtonPill } from '../components/Form/ButtonPill';
+import { LinkPill } from '../components/Form/LinkPill';
 import { Metadata } from '../components/Metadata';
 import { PoweredByIcon } from '../components/PoweredByIcon';
 import { UpdateCard } from '../components/UpdateCard';
@@ -25,22 +25,20 @@ export default function Home() {
 					<h2 className="mb-4 font-display font-semibold">
 						A simple way to track your mental health.
 					</h2>
-					<ButtonPill color="bg-violet-500">
-						{user ? (
-							<Link href="/dasboard">
-								<a>Go to Dashboard</a>
-							</Link>
-						) : (
-							<Link href="/login">
-								<a>Get Started</a>
-							</Link>
-						)}
-					</ButtonPill>
-					<ButtonPill color="bg-sky-500">
+					{user ? (
+						<Link href="/dashboard" passHref>
+							<LinkPill color="bg-violet-500">Go to Dashboard</LinkPill>
+						</Link>
+					) : (
+						<Link href="/login" passHref>
+							<LinkPill color="bg-violet-500">Get Started</LinkPill>
+						</Link>
+					)}
+					<LinkPill color="bg-sky-500">
 						<Link href="#about">
 							<a>Learn more</a>
 						</Link>
-					</ButtonPill>
+					</LinkPill>
 				</header>
 			</div>
 			<div className="mx-auto mb-4 max-w-2xl rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
