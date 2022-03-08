@@ -1,4 +1,5 @@
 import Logo from '../../public/icons/icon-responsive.svg';
+import { useDefaultAuthState } from '../../utils/hooks/firebase';
 import { useWindowSize } from '../../utils/hooks/window';
 import { NavbarLink } from './NavbarLink';
 import Link from 'next/link';
@@ -6,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { BsList } from 'react-icons/bs';
 
 export function Navbar() {
+	const [user] = useDefaultAuthState();
+
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [windowWidth] = useWindowSize();
 
@@ -37,9 +40,17 @@ export function Navbar() {
 				</button>
 				<div className={isExpanded ? 'block' : 'hidden sm:block'}>
 					<div className="absolute left-0 top-[calc(2.75rem+1px)] w-full border-b border-neutral-300 bg-neutral-100 px-4 py-2 shadow-sm sm:relative sm:top-0 sm:flex sm:space-x-4 sm:border-none sm:bg-transparent sm:p-0 sm:shadow-none">
-						<NavbarLink text="Dashboard" href="/dashboard" />
-						<NavbarLink text="Graph" href="/graph" />
-						<NavbarLink text="Sign Out" href="/sign-out" />
+						{user ? (
+							<>
+								<NavbarLink text="Dashboard" href="/dashboard" />
+								<NavbarLink text="Graph" href="/graph" />
+								<NavbarLink text="Sign Out" href="/sign-out" />
+							</>
+						) : (
+							<>
+								<NavbarLink text="Login" href="/login" />
+							</>
+						)}
 					</div>
 				</div>
 			</div>
