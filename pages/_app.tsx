@@ -1,3 +1,4 @@
+import { Navbar } from '../components/Navbar/Navbar';
 import '../styles/globals.css';
 import { initializeFirebase } from '../utils/firebase';
 import { AppProps } from 'next/app';
@@ -17,6 +18,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					showSpinner: false,
 				}}
 			/>
+			<Navbar />
 			<Component {...pageProps} />
 		</div>
 	);

@@ -1,6 +1,5 @@
 import { ButtonPill } from '../components/Form/ButtonPill';
 import { Metadata } from '../components/Metadata';
-import { Navbar } from '../components/Navbar/Navbar';
 import { PoweredByIcon } from '../components/PoweredByIcon';
 import { UpdateCard } from '../components/UpdateCard';
 import Logo from '../public/icons/icon-responsive.svg';
@@ -15,9 +14,8 @@ export default function Home() {
 	return (
 		<>
 			<Metadata title="Mood Graph - Home" url="/" />
-			<Navbar />
-			<div className="flex h-[calc(100vh-8rem-2px)] items-center justify-center">
-				<header className="mx-3 rounded-md bg-neutral-50 px-6 py-8 text-center shadow">
+			<div className="-mb-16 flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+				<header className="mx-3 rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
 					<h1 className="mb-3 font-display text-4xl font-extrabold">
 						Mood Graph
 					</h1>
