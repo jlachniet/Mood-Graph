@@ -20,7 +20,7 @@ export function useUserSettings(): [
 	SettingsUpdater
 ] {
 	const [user] = useDefaultAuthState();
-	const [pixels] = usePixels();
+	const { pixels } = usePixels();
 
 	const [clientUserSettings, setClientUserSettings] =
 		useState<ClientUserSettings | null>(null);

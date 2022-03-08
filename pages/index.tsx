@@ -39,7 +39,7 @@ export default function Home() {
 					</LinkPill>
 				</header>
 			</div>
-			<div className="mx-auto mb-4 max-w-2xl rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
+			<div className="mx-auto mb-4 max-w-screen-md rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
 				<main id="about" className="px-5 py-4">
 					<h2 className="mb-3 font-display text-4xl font-extrabold">Hello!</h2>
 					<p className="mb-4">
