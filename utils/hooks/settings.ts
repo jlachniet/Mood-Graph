@@ -1,8 +1,4 @@
-import {
-	ClientUserSettings,
-	ServerUserSettings,
-	SettingsUpdater,
-} from '../../types/settings';
+import { ClientUserSettings, ServerUserSettings } from '../../types/settings';
 import { getInitialUserSettings } from '../settings';
 import { useAuthenticatedDocumentData, useDefaultAuthState } from './firebase';
 import { usePixels } from './pixels';
@@ -11,14 +7,11 @@ import { isEqual, pickBy } from 'lodash';
 import { useEffect, useState } from 'react';
 
 /**
- * A custom hook that returns a tuple containing the current user's settings or
- * null if they aren't available, and a function to update the settings.
+ * A custom hook that returns an object containing the current user's settings
+ * or null if they aren't available, and a function to update the settings.
  * @returns The hook.
  */
-export function useUserSettings(): [
-	ClientUserSettings | null,
-	SettingsUpdater
-] {
+export function useUserSettings() {
 	const [user] = useDefaultAuthState();
 	const { pixels } = usePixels();
 
@@ -82,5 +75,5 @@ export function useUserSettings(): [
 		previousServerUserSettings,
 	]);
 
-	return [clientUserSettings, updateSetting];
+	return { userSettings: clientUserSettings, updateSetting };
 }

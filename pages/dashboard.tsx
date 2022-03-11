@@ -11,7 +11,7 @@ export default function Dashboard() {
 	const { pixels } = usePixels();
 	const [selectedPixel, setSelectedPixel] = useState<string | null>(null);
 
-	const [userSettings] = useUserSettings();
+	const { userSettings } = useUserSettings();
 
 	return (
 		<>
