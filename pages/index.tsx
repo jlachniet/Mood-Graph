@@ -25,18 +25,20 @@ export default function Home() {
 					<h2 className="mb-6 font-display font-semibold">
 						A simple way to track your mental health.
 					</h2>
-					{user ? (
-						<LinkPill href="/dashboard" color="bg-violet-500">
-							Go to Dashboard
+					<div>
+						{user ? (
+							<LinkPill href="/dashboard" color="bg-violet-500">
+								Go to Dashboard
+							</LinkPill>
+						) : (
+							<LinkPill href="/login" color="bg-violet-500">
+								Get Started
+							</LinkPill>
+						)}
+						<LinkPill href="#about" color="bg-sky-500">
+							Learn More
 						</LinkPill>
-					) : (
-						<LinkPill href="/login" color="bg-violet-500">
-							Get Started
-						</LinkPill>
-					)}
-					<LinkPill href="#about" color="bg-sky-500">
-						Learn More
-					</LinkPill>
+					</div>
 				</header>
 			</div>
 			<div className="mx-auto mb-4 max-w-screen-md rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
@@ -125,6 +127,14 @@ export default function Home() {
 						/>
 					</ul>
 				</main>
+				<div className="flex flex-col gap-2 px-3 py-2 text-right">
+					<Link href="/privacy-policy">
+						<a className="text-blue-600">Privacy Policy</a>
+					</Link>
+					<Link href="/delete-account">
+						<a className="text-blue-600">Delete Account</a>
+					</Link>
+				</div>
 				<footer className="bg-indigo-200 p-1 text-center">
 					Made with{' '}
 					<BsHeartFill className="mb-[0.125rem] inline h-3 w-3 fill-fuchsia-500 drop-shadow" />{' '}

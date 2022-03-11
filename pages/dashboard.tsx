@@ -9,9 +9,9 @@ export default function Dashboard() {
 	useAuthenticatedRoute();
 
 	const { pixels } = usePixels();
-	const [selectedPixel, setSelectedPixel] = useState<string | null>(null);
-
 	const { userSettings } = useUserSettings();
+
+	const [selectedPixel, setSelectedPixel] = useState<string | null>(null);
 
 	return (
 		<>
