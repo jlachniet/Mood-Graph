@@ -10,7 +10,6 @@
 		"lint": "tsc --noEmit --incremental false && next lint"
 	},
 	"dependencies": {
-		"@use-it/interval": "^1.0.0",
 		"chart.js": "^3.7.1",
 		"file-saver": "^2.0.5",
 		"firebase": "^9.6.2",
