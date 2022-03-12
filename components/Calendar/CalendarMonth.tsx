@@ -27,10 +27,23 @@ export function CalendarMonth(props: {
 
 	return (
 		<li className="max-w-sm mx-auto">
-			<h3 className="mb-2 font-display text-xl font-semibold">
+			<h3 className="mb-3 font-display text-xl font-semibold">
 				{MONTH_NAMES[props.pixelMonth.month - 1]}
 			</h3>
-			<ul className="leading-0">
+			<ul className="mb-2 leading-0 bg-neutral-100 p-2 rounded-md shadow shadow-neutral-900/50">
+				<li
+					className="pb-2 font-display font-extrabold text-sm text-neutral-700 uppercase"
+					aria-hidden
+				>
+					{['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+						<ul
+							key={day}
+							className="inline-block w-[calc(100%/7)] leading-normal"
+						>
+							{day}
+						</ul>
+					))}
+				</li>
 				{formattedPixels.map((pixelWeek, index) => (
 					<li key={index}>
 						<ul>

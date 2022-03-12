@@ -3,7 +3,7 @@ import { CalendarEditor } from '../components/Calendar/CalendarEditor';
 import { Button } from '../components/Form/Button';
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
-import { DateString } from '../types/dates';
+import { Pixel } from '../types/pixels';
 import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
 import { useUserSettings } from '../utils/hooks/settings';
@@ -15,7 +15,7 @@ export default function Dashboard() {
 	const { pixels } = usePixels();
 	const { userSettings } = useUserSettings();
 
-	const [selectedPixel, setSelectedPixel] = useState<DateString | null>(null);
+	const [selectedPixel, setSelectedPixel] = useState<Pixel | null>(null);
 
 	return (
 		<>
@@ -34,7 +34,7 @@ export default function Dashboard() {
 			)}
 			{pixels && userSettings ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
-					<div className="flex w-full max-w-md flex-col rounded-md bg-transparent text-center shadow-2xl">
+					<div className="flex w-full max-w-md flex-col rounded-md bg-transparent text-center shadow">
 						<header className="z-10 rounded-t-md bg-violet-400 px-6 py-4 shadow">
 							<h1 className="mb-2 font-display text-3xl font-extrabold">
 								Dashboard

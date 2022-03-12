@@ -20,6 +20,10 @@ module.exports = {
 			lineHeight: {
 				0: '0',
 			},
+			brightness: {
+				115: '1.15',
+				120: '1.2',
+			},
 			animation: {
 				heartbeat: 'heartbeat 1s ease-in-out infinite',
 			},

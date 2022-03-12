@@ -52,9 +52,9 @@ export interface PixelMonth {
  */
 export type PixelSelector = (
 	/**
-	 * The date to select, or null to clear the selection.
+	 * The pixel to select, or null to clear the selection.
 	 */
-	date: DateString | null
+	date: Pixel | null
 ) => void;
 
 /**

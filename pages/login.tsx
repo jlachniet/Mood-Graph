@@ -29,12 +29,16 @@ export default function Login() {
 					<main className="mx-3 w-72 rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
 						<h1 className="mb-4 font-display text-3xl font-extrabold">Login</h1>
 						<button
-							className="rounded-full bg-violet-600 px-3 py-2 font-display text-sm font-semibold text-neutral-100"
-							onClick={() =>
-								signInWithPopup(getAuth(), new GoogleAuthProvider())
-							}
+							className="rounded-full bg-violet-700 px-3 py-2 font-display text-sm font-semibold text-neutral-100 transition duration-75 hover:brightness-110"
+							onClick={async () => {
+								try {
+									await signInWithPopup(getAuth(), new GoogleAuthProvider());
+								} catch (error) {
+									console.error('Failed to sign in with Google', error);
+								}
+							}}
 						>
-							<GoogleLogo className="mr-2 inline-block" />
+							<GoogleLogo className="mr-2 inline-block drop-shadow" />
 							Sign in with Google
 						</button>
 					</main>
