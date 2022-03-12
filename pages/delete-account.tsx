@@ -5,16 +5,16 @@ import {
 	useDefaultAuthState,
 } from '../utils/hooks/firebase';
 
-export default function Graph() {
+export default function DeleteAccount() {
 	useAuthenticatedRoute();
 
 	const { user } = useDefaultAuthState();
 
 	return (
 		<>
-			<Metadata title="Mood Graph - Graph" url="/graph" />
+			<Metadata title="Mood Graph - Delete Account" url="/delete-account" />
 			{user ? (
-				<p className="mx-4 my-2">Graph</p>
+				<p className="mx-4 my-2">Delete account</p>
 			) : (
 				<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
 					<LoadingIcon />

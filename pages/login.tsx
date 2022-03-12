@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 export default function Login() {
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
 
 	useEffect(() => {
 		if (user) {

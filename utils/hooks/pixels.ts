@@ -17,7 +17,7 @@ import {
  * @returns The hook
  */
 export function usePixels() {
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
 	const pixels =
 		useAuthenticatedCollectionData<Pixel>((user) =>
 			collection(getFirestore(), 'users', user.uid, 'pixels')

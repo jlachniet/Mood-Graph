@@ -9,7 +9,7 @@ import { BsHeartFill } from 'react-icons/bs';
 import { SiFirebase, SiNextdotjs, SiReact, SiTypescript } from 'react-icons/si';
 
 export default function Home() {
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
 
 	return (
 		<>

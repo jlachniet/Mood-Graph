@@ -13,26 +13,23 @@ import {
  * @returns The hook.
  */
 export function useAuthenticatedRoute() {
-	const [user, isUserLoading] = useDefaultAuthState();
+	const { user, loading } = useDefaultAuthState();
 
 	return useEffect(() => {
-		if (!user && !isUserLoading) {
+		if (!user && !loading) {
 			router.push('/login?next=prev');
 		}
-	}, [user, isUserLoading]);
+	}, [user, loading]);
 }
 
 /**
  * Gets the useAuthState hook using the default Firebase auth.
  * @returns The hook.
  */
-export function useDefaultAuthState(): [
-	User | null,
-	boolean,
-	Error | undefined
-] {
+export function useDefaultAuthState() {
 	const [user, loading, error] = useAuthState(getAuth());
-	return [user ?? null, loading, error];
+
+	return { user: user ?? null, loading, error };
 }
 
 /**
@@ -44,7 +41,7 @@ export function useDefaultAuthState(): [
 export function useAuthenticatedCollectionData<T>(
 	callback: (user: User) => CollectionReference
 ) {
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
 
 	return useCollectionData(user && callback(user)) as [
 		T[] | undefined,
@@ -61,7 +58,7 @@ export function useAuthenticatedCollectionData<T>(
 export function useAuthenticatedDocumentData<T>(
 	callback: (user: User) => DocumentReference
 ) {
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
 
 	return useDocumentData(user && callback(user)) as [
 		T | undefined,

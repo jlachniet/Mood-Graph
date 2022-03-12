@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
  * @returns The hook.
  */
 export function useUserSettings() {
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
 	const { pixels } = usePixels();
 
 	const [clientUserSettings, setClientUserSettings] =

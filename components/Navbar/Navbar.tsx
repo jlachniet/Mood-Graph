@@ -7,10 +7,14 @@ import { useEffect, useState } from 'react';
 import { BsList } from 'react-icons/bs';
 
 export function Navbar() {
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
+	const [windowWidth] = useWindowSize();
 
 	const [isExpanded, setIsExpanded] = useState(false);
-	const [windowWidth] = useWindowSize();
+
+	function toggleIsExpanded() {
+		setIsExpanded(!isExpanded);
+	}
 
 	useEffect(() => {
 		if (windowWidth >= 640) {
@@ -32,23 +36,36 @@ export function Navbar() {
 				</a>
 			</Link>
 			<div className="flex">
-				<button
-					onClick={() => setIsExpanded(!isExpanded)}
-					className="inline-block sm:hidden"
-				>
+				<button onClick={toggleIsExpanded} className="inline-block sm:hidden">
 					<BsList className="h-5 w-5 fill-neutral-700 transition duration-75 hover:brightness-50" />
 				</button>
 				<div className={isExpanded ? 'block' : 'hidden sm:block'}>
 					<div className="absolute left-0 top-[calc(2.75rem+1px)] w-full border-b border-neutral-300 bg-neutral-100 px-4 py-2 shadow-sm sm:relative sm:top-0 sm:flex sm:space-x-4 sm:border-none sm:bg-transparent sm:p-0 sm:shadow-none">
 						{user ? (
 							<>
-								<NavbarLink text="Dashboard" href="/dashboard" />
-								<NavbarLink text="Graph" href="/graph" />
-								<NavbarLink text="Sign Out" href="/sign-out" />
+								<NavbarLink
+									text="Dashboard"
+									href="/dashboard"
+									toggleIsExpanded={toggleIsExpanded}
+								/>
+								<NavbarLink
+									text="Graph"
+									href="/graph"
+									toggleIsExpanded={toggleIsExpanded}
+								/>
+								<NavbarLink
+									text="Sign Out"
+									href="/sign-out"
+									toggleIsExpanded={toggleIsExpanded}
+								/>
 							</>
 						) : (
 							<>
-								<NavbarLink text="Login" href="/login" />
+								<NavbarLink
+									text="Login"
+									href="/login"
+									toggleIsExpanded={toggleIsExpanded}
+								/>
 							</>
 						)}
 					</div>
