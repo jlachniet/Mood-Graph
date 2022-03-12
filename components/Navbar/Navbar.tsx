@@ -8,7 +8,7 @@ import { BsList } from 'react-icons/bs';
 
 export function Navbar() {
 	const { user } = useDefaultAuthState();
-	const [windowWidth] = useWindowSize();
+	const { windowWidth } = useWindowSize();
 
 	const [isExpanded, setIsExpanded] = useState(false);
 
