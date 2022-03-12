@@ -70,30 +70,3 @@ export type PixelUpdater = (
 	 */
 	value: PixelValue | null
 ) => void;
-
-/**
- * The state of the pixel uploader.
- */
-export type PixelUploaderState =
-	/**
-	 * The default state, no upload in progress.
-	 */
-	| 'default'
-	/**
-	 * The user has uploaded data, but hasn't confirmed that they want to
-	 * override their existing data.
-	 */
-	| 'confirming'
-	/**
-	 * The user has confirmed that they want to override their existing data and
-	 * the data is being imported.
-	 */
-	| 'importing'
-	/**
-	 * Data was successfully imported.
-	 */
-	| 'success'
-	/**
-	 * An error occurred while importing data.
-	 */
-	| 'error';

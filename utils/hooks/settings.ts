@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
  * or null if they aren't available, and a function to update the settings.
  * @returns The hook.
  */
-export function useUserSettings() {
+export function useSettings() {
 	const { user } = useDefaultAuthState();
 	const { pixels } = usePixels();
 
@@ -24,7 +24,7 @@ export function useUserSettings() {
 	const [previousServerUserSettings, setPreviousServerUserSettings] =
 		useState<ServerUserSettings>({});
 
-	function updateSetting(updatedSettings: Partial<ClientUserSettings>) {
+	function updateSettings(updatedSettings: Partial<ClientUserSettings>) {
 		if (clientUserSettings) {
 			setClientUserSettings({
 				...clientUserSettings,
@@ -75,5 +75,5 @@ export function useUserSettings() {
 		previousServerUserSettings,
 	]);
 
-	return { userSettings: clientUserSettings, updateSetting };
+	return { settings: clientUserSettings, updateSettings };
 }
