@@ -1,12 +1,13 @@
+import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
+import GoogleLogo from '../public/images/google-logo.svg';
 import { useDefaultAuthState } from '../utils/hooks/firebase';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import Router from 'next/router';
 import { useEffect } from 'react';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 export default function Login() {
-	const { user } = useDefaultAuthState();
+	const { user, loading } = useDefaultAuthState();
 
 	useEffect(() => {
 		if (user) {
@@ -22,22 +23,22 @@ export default function Login() {
 		<>
 			<Metadata title="Mood Graph - Login" url="/" />
 			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
-				<main className="mx-3 h-[9.5rem] w-72 rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
-					<h1 className="font-display text-3xl font-extrabold">Login</h1>
-					{!user && (
-						<StyledFirebaseAuth
-							className="-mb-4"
-							firebaseAuth={getAuth()}
-							uiConfig={{
-								signInFlow: 'popup',
-								signInOptions: [GoogleAuthProvider.PROVIDER_ID],
-								callbacks: {
-									signInSuccessWithAuthResult: () => false,
-								},
-							}}
-						/>
-					)}
-				</main>
+				{loading || user ? (
+					<LoadingIcon />
+				) : (
+					<main className="mx-3 w-72 rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
+						<h1 className="mb-4 font-display text-3xl font-extrabold">Login</h1>
+						<button
+							className="rounded-full bg-violet-600 px-3 py-2 font-display text-sm font-semibold text-neutral-100"
+							onClick={() =>
+								signInWithPopup(getAuth(), new GoogleAuthProvider())
+							}
+						>
+							<GoogleLogo className="mr-2 inline-block" />
+							Sign in with Google
+						</button>
+					</main>
+				)}
 			</div>
 		</>
 	);

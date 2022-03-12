@@ -5,15 +5,3 @@
 #__next {
 	@apply min-h-full;
 }
-
-.firebaseui-idp-button {
-	@apply !rounded-full !bg-violet-600 !shadow;
-}
-
-.firebaseui-idp-icon {
-	@apply brightness-150;
-}
-
-.firebaseui-idp-text {
-	@apply !text-neutral-50;
-}
