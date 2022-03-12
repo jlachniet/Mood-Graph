@@ -5,7 +5,7 @@ export default function Offline() {
 	return (
 		<>
 			<FunctionalMetadata title="Mood Graph - Offline" />
-			<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				<main>
 					<div className="mx-auto mb-2 flex w-fit items-center">
 						<h1 className="mr-3 font-display text-3xl font-extrabold">

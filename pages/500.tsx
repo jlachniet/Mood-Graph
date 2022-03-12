@@ -10,7 +10,7 @@ export default function Error500() {
 	return (
 		<>
 			<FunctionalMetadata title="Mood Graph - Error 500" />
-			<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				<main className="px-4 text-center">
 					<div className="mx-auto mb-4 flex w-fit items-center">
 						<h1 className="mr-3 font-display text-3xl font-extrabold">

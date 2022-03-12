@@ -7,7 +7,7 @@ export function UpdateCard(props: {
 }) {
 	return (
 		<li
-			className={`rounded-md px-3 py-2 shadow-sm shadow-black/50 transition hover:scale-[1.0125] ${
+			className={`rounded-md px-3 py-2 shadow-sm shadow-black/50 transition hover:scale-101 ${
 				props.isLatest ? 'bg-green-200' : 'bg-sky-200'
 			}`}
 		>

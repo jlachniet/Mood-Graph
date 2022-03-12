@@ -16,7 +16,7 @@ export default function Graph() {
 			{user ? (
 				<p className="mx-4 my-2">Graph</p>
 			) : (
-				<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+				<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 					<LoadingIcon />
 				</div>
 			)}

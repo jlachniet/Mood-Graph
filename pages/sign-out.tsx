@@ -18,7 +18,7 @@ export default function SignOut() {
 	return (
 		<>
 			<FunctionalMetadata title="Mood Graph - Signing out..." />
-			<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				<main className="text-center">
 					<h2 className="mb-2 font-display text-2xl font-extrabold">
 						Signing out...

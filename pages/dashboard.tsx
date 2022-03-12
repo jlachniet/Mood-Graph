@@ -24,7 +24,7 @@ export default function Dashboard() {
 				/>
 			)}
 			{pixels && userSettings ? (
-				<div className="flex h-[calc(100vh-2.75rem-1px)] justify-center p-4">
+				<div className="flex h-screenheightminusnavbar justify-center p-4">
 					<div className="flex max-w-xl flex-col rounded-md bg-transparent shadow-2xl">
 						<header className="rounded-t-md bg-violet-400 p-4 text-center">
 							<h1 className="mb-2 font-display text-3xl font-extrabold">
@@ -89,7 +89,7 @@ export default function Dashboard() {
 					</div>
 				</div>
 			) : (
-				<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+				<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 					<LoadingIcon />
 				</div>
 			)}

@@ -21,7 +21,7 @@ export default function Login() {
 	return (
 		<>
 			<Metadata title="Mood Graph - Login" url="/" />
-			<div className="flex h-[calc(100vh-5.5rem-2px)] items-center justify-center">
+			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				<main className="mx-3 h-[9.5rem] w-72 rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
 					<h1 className="font-display text-3xl font-extrabold">Login</h1>
 					{!user && (
