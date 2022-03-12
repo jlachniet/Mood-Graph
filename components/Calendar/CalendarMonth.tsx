@@ -30,16 +30,13 @@ export function CalendarMonth(props: {
 			<h3 className="font-display text-xl font-semibold">
 				{MONTH_NAMES[props.pixelMonth.month - 1]}
 			</h3>
-			<ul className="my-4 leading-0 bg-neutral-100 p-2 rounded-md shadow shadow-neutral-900/50">
+			<ul className="my-4 leading-0 bg-neutral-100 p-3 rounded-lg shadow shadow-neutral-900/50">
 				<li
 					className="pb-2 font-display font-extrabold text-sm text-neutral-700 uppercase"
 					aria-hidden
 				>
 					{['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-						<ul
-							key={day}
-							className="inline-block w-[calc(100%/7)] leading-normal"
-						>
+						<ul key={day} className="inline-block w-[calc(100%/7)]">
 							{day}
 						</ul>
 					))}
