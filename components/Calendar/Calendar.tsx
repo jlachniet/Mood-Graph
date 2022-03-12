@@ -15,7 +15,7 @@ export function Calendar(props: {
 	);
 
 	return (
-		<ul className="max-h-full overflow-auto">
+		<ul className="max-h-full overflow-auto [scrollbar-gutter:stable_both-edges]">
 			{pixelYears.map((pixelYear) => (
 				<CalendarYear
 					key={pixelYear.year}
