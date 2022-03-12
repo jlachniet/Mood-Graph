@@ -23,7 +23,7 @@ export function Navbar() {
 	}, [windowWidth]);
 
 	return (
-		<nav className="sticky top-0 z-10 flex items-center justify-between border-b border-neutral-300 bg-neutral-100 py-2 pl-3 pr-4 font-display shadow-sm">
+		<nav className="sticky top-0 z-20 flex items-center justify-between border-b border-neutral-300 bg-neutral-100 py-2 pl-3 pr-4 font-display shadow-sm">
 			<Link href="/">
 				<a className="flex items-center text-xl font-extrabold">
 					<Logo

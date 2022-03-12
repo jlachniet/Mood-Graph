@@ -1,6 +1,9 @@
+import { Calendar } from '../components/Calendar/Calendar';
+import { CalendarEditor } from '../components/Calendar/CalendarEditor';
 import { Button } from '../components/Form/Button';
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
+import { DateString } from '../types/dates';
 import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
 import { useUserSettings } from '../utils/hooks/settings';
@@ -12,79 +15,38 @@ export default function Dashboard() {
 	const { pixels } = usePixels();
 	const { userSettings } = useUserSettings();
 
-	const [selectedPixel, setSelectedPixel] = useState<string | null>(null);
+	const [selectedPixel, setSelectedPixel] = useState<DateString | null>(null);
 
 	return (
 		<>
 			<Metadata title="Mood Graph - Dashboard" url="/dashboard" />
 			{selectedPixel && (
-				<div
-					className="absolute left-0 top-0 z-20 h-full w-full bg-neutral-900 opacity-50"
-					onClick={() => setSelectedPixel(null)}
-				/>
+				<>
+					<CalendarEditor
+						selectedPixel={selectedPixel}
+						setSelectedPixel={setSelectedPixel}
+					/>
+					<div
+						className="absolute left-0 top-0 z-30 h-full w-full cursor-pointer bg-neutral-900 opacity-50"
+						onClick={() => setSelectedPixel(null)}
+					/>
+				</>
 			)}
 			{pixels && userSettings ? (
-				<div className="flex h-screenheightminusnavbar justify-center p-4">
-					<div className="flex max-w-xl flex-col rounded-md bg-transparent shadow-2xl">
-						<header className="rounded-t-md bg-violet-400 p-4 text-center">
+				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
+					<div className="flex w-full max-w-md flex-col rounded-md bg-transparent text-center shadow-2xl">
+						<header className="z-10 rounded-t-md bg-violet-400 px-6 py-4 shadow">
 							<h1 className="mb-2 font-display text-3xl font-extrabold">
 								Dashboard
 							</h1>
 							<Button>Settings</Button>
 						</header>
 						<main className="overflow-hidden rounded-b-md bg-neutral-50 p-4">
-							<div className="max-h-full overflow-auto">
-								<p>
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Quisquam eligendi amet voluptates distinctio sequi quidem
-									tempore ducimus ullam, numquam molestias possimus dignissimos
-									natus. Sed, amet assumenda ab adipisci ea quidem, maiores
-									aspernatur sint corrupti molestias, similique nihil deserunt
-									modi iure? Nostrum cumque vel quasi rem laborum, nobis
-									expedita, minima exercitationem quis magni similique veniam
-									laudantium aliquam, voluptatum quas
-								</p>
-								<p>
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Quisquam eligendi amet voluptates distinctio sequi quidem
-									tempore ducimus ullam, numquam molestias possimus dignissimos
-									natus. Sed, amet assumenda ab adipisci ea quidem, maiores
-									aspernatur sint corrupti molestias, similique nihil deserunt
-									modi iure? Nostrum cumque vel quasi rem laborum, nobis
-									expedita, minima exercitationem quis magni similique veniam
-									laudantium aliquam, voluptatum quas
-								</p>
-								<p>
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Quisquam eligendi amet voluptates distinctio sequi quidem
-									tempore ducimus ullam, numquam molestias possimus dignissimos
-									natus. Sed, amet assumenda ab adipisci ea quidem, maiores
-									aspernatur sint corrupti molestias, similique nihil deserunt
-									modi iure? Nostrum cumque vel quasi rem laborum, nobis
-									expedita, minima exercitationem quis magni similique veniam
-									laudantium aliquam, voluptatum quas
-								</p>
-								<p>
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Quisquam eligendi amet voluptates distinctio sequi quidem
-									tempore ducimus ullam, numquam molestias possimus dignissimos
-									natus. Sed, amet assumenda ab adipisci ea quidem, maiores
-									aspernatur sint corrupti molestias, similique nihil deserunt
-									modi iure? Nostrum cumque vel quasi rem laborum, nobis
-									expedita, minima exercitationem quis magni similique veniam
-									laudantium aliquam, voluptatum quas
-								</p>
-								<p>
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Quisquam eligendi amet voluptates distinctio sequi quidem
-									tempore ducimus ullam, numquam molestias possimus dignissimos
-									natus. Sed, amet assumenda ab adipisci ea quidem, maiores
-									aspernatur sint corrupti molestias, similique nihil deserunt
-									modi iure? Nostrum cumque vel quasi rem laborum, nobis
-									expedita, minima exercitationem quis magni similique veniam
-									laudantium aliquam, voluptatum quas
-								</p>
-							</div>
+							<Calendar
+								pixels={pixels}
+								settings={userSettings}
+								setSelectedPixel={setSelectedPixel}
+							/>
 						</main>
 					</div>
 				</div>
