@@ -1,6 +1,9 @@
+import { Pixel } from '../../types/pixels';
+import { getCurrentDateString } from '../../utils/dates';
+import { saveJSON } from '../../utils/files';
 import { Button } from '../Form/Button';
 
-export function SettingsMenuBackup() {
+export function SettingsMenuBackup(props: { pixels: Pixel[] }) {
 	return (
 		<div>
 			<h3 className="mb-2 font-display text-lg font-semibold">Backup</h3>
@@ -11,7 +14,16 @@ export function SettingsMenuBackup() {
 				Import Data
 				<input type="file" className="hidden" />
 			</label>
-			<Button background="bg-sky-500" color="text-neutral-100">
+			<Button
+				onClick={() =>
+					saveJSON(
+						`Mood Graph Backup (${getCurrentDateString()}).json`,
+						props.pixels
+					)
+				}
+				background="bg-sky-500"
+				color="text-neutral-100"
+			>
 				Export Data
 			</Button>
 		</div>

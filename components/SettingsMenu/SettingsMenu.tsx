@@ -1,3 +1,4 @@
+import { Pixel } from '../../types/pixels';
 import {
 	ClientUserSettings,
 	SettingsMenuState,
@@ -9,6 +10,7 @@ import { SettingsMenuReminders } from './SettingsMenuReminders';
 import { BsX } from 'react-icons/bs';
 
 export function SettingsMenu(props: {
+	pixels: Pixel[];
 	settings: ClientUserSettings;
 	updateSettings: SettingsUpdater;
 	setSettingsMenuState: (state: SettingsMenuState) => void;
@@ -24,7 +26,7 @@ export function SettingsMenu(props: {
 			</button>
 			<SettingsMenuReminders />
 			<SettingsMenuCalendar {...props} />
-			<SettingsMenuBackup />
+			<SettingsMenuBackup {...props} />
 		</div>
 	);
 }

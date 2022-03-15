@@ -24,7 +24,7 @@ export default function Dashboard() {
 	return (
 		<>
 			<Metadata title="Mood Graph - Dashboard" url="/dashboard" />
-			{settings && (selectedPixel || settingsMenuState !== 'closed') && (
+			{settings && pixels && (selectedPixel || settingsMenuState !== 'closed') && (
 				<>
 					{selectedPixel ? (
 						<CalendarEditor
@@ -33,6 +33,7 @@ export default function Dashboard() {
 						/>
 					) : (
 						<SettingsMenu
+							pixels={pixels}
 							settings={settings}
 							updateSettings={updateSettings}
 							setSettingsMenuState={setSettingsMenuState}
