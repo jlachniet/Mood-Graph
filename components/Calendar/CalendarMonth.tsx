@@ -35,12 +35,16 @@ export function CalendarMonth(props: {
 			</h3>
 			<ul className="m-2 leading-0 bg-neutral-100 p-3 rounded-lg shadow shadow-neutral-900/50">
 				<li
-					className="pb-2 font-display font-extrabold text-sm text-neutral-700 uppercase"
+					className="pb-2 font-display font-extrabold text-sm text-neutral-700"
 					aria-hidden
 				>
 					{['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
 						<ul key={day} className="inline-block w-[calc(100%/7)]">
-							{windowWidth >= 480 ? day : day[0]}
+							{windowWidth >= 360
+								? windowWidth >= 480
+									? day
+									: day.substring(0, 2)
+								: day.substring(0, 1)}
 						</ul>
 					))}
 				</li>
