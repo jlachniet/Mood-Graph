@@ -36,6 +36,7 @@ export default function Dashboard() {
 							pixels={pixels}
 							settings={settings}
 							updateSettings={updateSettings}
+							settingsMenuState={settingsMenuState}
 							setSettingsMenuState={setSettingsMenuState}
 						/>
 					)}

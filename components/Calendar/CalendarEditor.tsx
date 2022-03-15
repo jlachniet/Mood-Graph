@@ -12,7 +12,7 @@ export function CalendarEditor(props: {
 	const options: (PixelValue | null)[] = [null, 1, 2, 3, 4, 5];
 
 	return (
-		<div className="absolute top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2 rounded-md bg-neutral-100 px-6 py-4 text-center">
+		<div className="absolute top-1/2 left-1/2 z-40 -translate-x-1/2 -translate-y-1/2 rounded-md bg-neutral-100 px-6 py-4 text-center shadow-md">
 			<h2 className="mb-4 font-display text-2xl font-extrabold">
 				{new Date(
 					`${props.selectedPixel.dateString}T00:00:00`
