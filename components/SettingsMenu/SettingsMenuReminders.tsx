@@ -11,10 +11,9 @@ export function SettingsMenuReminders() {
 				href={getGoogleCalendarLink()}
 				background="bg-violet-500"
 				color="text-neutral-100"
+				target="_blank"
 			>
-				<a className="" target="_blank">
-					Add to Google Calendar
-				</a>
+				Add to Google Calendar
 			</LinkButton>
 		</div>
 	);
