@@ -41,7 +41,7 @@ export default function Dashboard() {
 						/>
 					)}
 					<div
-						className="absolute left-0 top-0 z-30 h-full w-full cursor-pointer bg-neutral-900 opacity-50"
+						className="absolute inset-0 z-30 cursor-pointer bg-neutral-900 opacity-50"
 						onClick={() => {
 							setSelectedPixel(null);
 							setSettingsMenuState('closed');
