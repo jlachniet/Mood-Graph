@@ -32,7 +32,11 @@ export default function Dashboard() {
 							setSelectedPixel={setSelectedPixel}
 						/>
 					) : (
-						<SettingsMenu settings={settings} updateSettings={updateSettings} />
+						<SettingsMenu
+							settings={settings}
+							updateSettings={updateSettings}
+							setSettingsMenuState={setSettingsMenuState}
+						/>
 					)}
 					<div
 						className="absolute left-0 top-0 z-30 h-full w-full cursor-pointer bg-neutral-900 opacity-50"
