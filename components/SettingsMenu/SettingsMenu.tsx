@@ -3,6 +3,7 @@ import {
 	SettingsMenuState,
 	SettingsUpdater,
 } from '../../types/settings';
+import { SettingsMenuBackup } from './SettingsMenuBackup';
 import { SettingsMenuCalendar } from './SettingsMenuCalendar';
 import { SettingsMenuReminders } from './SettingsMenuReminders';
 import { BsX } from 'react-icons/bs';
@@ -23,6 +24,7 @@ export function SettingsMenu(props: {
 			</button>
 			<SettingsMenuReminders />
 			<SettingsMenuCalendar {...props} />
+			<SettingsMenuBackup />
 		</div>
 	);
 }

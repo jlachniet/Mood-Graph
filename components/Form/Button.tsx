@@ -1,10 +1,17 @@
+import { TailwindBackground, TailwindText } from '../../types/styles';
+
 export function Button(
-	props: Omit<JSX.IntrinsicElements['button'], 'className'>
+	props: JSX.IntrinsicElements['button'] & {
+		background: TailwindBackground;
+		color: TailwindText;
+	}
 ) {
 	return (
 		<button
 			{...props}
-			className="rounded bg-sky-300 px-2 py-1 font-display font-semibold text-neutral-800 shadow hover:brightness-110"
-		></button>
+			className={`rounded px-2 py-1 font-display font-semibold shadow hover:brightness-110 ${
+				props.background
+			} ${props.color} ${props.className ?? ''}`}
+		/>
 	);
 }

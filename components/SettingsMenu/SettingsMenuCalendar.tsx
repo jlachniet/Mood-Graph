@@ -28,8 +28,8 @@ export function SettingsMenuCalendar(props: {
 						startDate: settings.preferredStartDate,
 						endDate: settings.preferredEndDate,
 					});
-					setWarning(null);
 				}
+				setWarning(null);
 			}
 		}
 	}, [settings, updateSettings]);

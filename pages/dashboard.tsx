@@ -54,7 +54,11 @@ export default function Dashboard() {
 							<h1 className="mb-2 font-display text-3xl font-extrabold">
 								Dashboard
 							</h1>
-							<Button onClick={() => setSettingsMenuState('open')}>
+							<Button
+								background="bg-sky-300"
+								color="text-neutral-800"
+								onClick={() => setSettingsMenuState('open')}
+							>
 								Settings
 							</Button>
 						</header>
