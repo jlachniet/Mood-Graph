@@ -2,10 +2,7 @@ import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
 import { MovingAverageOption } from '../types/math';
 import { getCurrentDateString, getDateStringRange } from '../utils/dates';
-import {
-	useAuthenticatedRoute,
-	useDefaultAuthState,
-} from '../utils/hooks/firebase';
+import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
 import { getMovingAverage, MOVING_AVERAGE_OPTIONS } from '../utils/math';
 import {
@@ -110,7 +107,7 @@ export default function Graph() {
 			<Metadata title="Mood Graph - Graph" url="/graph" />
 			{pixels && graphOptions ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
-					<main className="flex w-full max-w-xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow">
+					<main className="flex w-full max-w-xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
 						<h1 className="mb-2 font-display text-3xl font-extrabold">Graph</h1>
 						{graphData && selectedGraphOption ? (
 							<>
@@ -120,7 +117,7 @@ export default function Graph() {
 									</label>
 									<select
 										id="averaging-options"
-										className="mb-3 w-fit rounded-lg border border-neutral-700 px-1 py-0.5 shadow"
+										className="mb-3 w-fit rounded-lg border border-neutral-700 px-1 py-0.5 shadow dark:border-transparent dark:bg-neutral-600"
 										value={graphOptions.indexOf(selectedGraphOption)}
 										onChange={(event) => {
 											setSelectedGraphOption(
@@ -189,7 +186,7 @@ export default function Graph() {
 							<p>
 								Add some days to your{' '}
 								<Link href="/dashboard">
-									<a className="text-blue-600">dashboard</a>
+									<a className="text-blue-600 dark:text-blue-500">dashboard</a>
 								</Link>{' '}
 								to get started!
 							</p>

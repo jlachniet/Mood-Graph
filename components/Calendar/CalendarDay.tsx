@@ -8,7 +8,7 @@ export function CalendarDay(props: {
 }) {
 	return (
 		<li
-			className={`relative inline-block w-[calc(100%/7)] pb-[calc(100%/7)] transition duration-75 hover:brightness-110 ${
+			className={`relative inline-block w-[calc(100%/7)] pb-[calc(100%/7)] transition-filter duration-75 hover:brightness-110 ${
 				PIXEL_COLORS[props.pixel.value ?? 'null']
 			} ${
 				getCurrentDateString() === props.pixel.dateString &&
@@ -18,7 +18,7 @@ export function CalendarDay(props: {
 			}`}
 		>
 			<button
-				className="absolute top-0 left-0 inline-block h-full w-full cursor-pointer"
+				className="absolute top-0 left-0 inline-block h-full w-full cursor-pointer dark:font-semibold"
 				onClick={() => props.setSelectedPixel(props.pixel)}
 			>
 				<div

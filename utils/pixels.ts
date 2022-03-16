@@ -9,7 +9,7 @@ export const PIXEL_COLORS: Record<PixelValue | 'null', string> = {
 	3: 'bg-yellow-500',
 	4: 'bg-green-500',
 	5: 'bg-blue-500',
-	null: 'bg-zinc-300',
+	null: 'bg-zinc-300 dark:bg-zinc-800',
 };
 
 /**

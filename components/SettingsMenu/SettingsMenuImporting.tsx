@@ -18,6 +18,7 @@ export function SettingsMenuImporting(props: {
 }) {
 	const { user } = useDefaultAuthState();
 
+	const [isImporting, setIsImporting] = useState(false);
 	const [importProgress, setImportProgress] = useState(0);
 
 	const { settings, updateSettings, setSettingsMenuState, importedData } =
@@ -25,6 +26,12 @@ export function SettingsMenuImporting(props: {
 
 	useEffect(() => {
 		async function importPixels() {
+			if (isImporting) {
+				return;
+			}
+
+			setIsImporting(true);
+
 			if (!user) {
 				throw new Error('Importing screen rendered without a user');
 			}
@@ -85,18 +92,25 @@ export function SettingsMenuImporting(props: {
 		}
 
 		importPixels();
-	}, [user, settings, updateSettings, setSettingsMenuState, importedData]);
+	}, [
+		user,
+		settings,
+		updateSettings,
+		setSettingsMenuState,
+		isImporting,
+		importedData,
+	]);
 
 	return (
 		<>
 			<h2 className="mb-3 font-display text-2xl font-extrabold">Importing</h2>
 			<strong className="mb-4 block">Please do not close this page!</strong>
 			<div
-				className="inline-block h-3 bg-green-600 transition-all"
+				className="inline-block h-3 bg-green-600 transition-width"
 				style={{ width: 256 * importProgress }}
 			/>
 			<div
-				className="inline-block h-3 bg-gray-600 transition-all"
+				className="inline-block h-3 bg-gray-600 transition-width"
 				style={{ width: 256 * (1 - importProgress) }}
 			/>
 			<span className="ml-2 font-display font-semibold">

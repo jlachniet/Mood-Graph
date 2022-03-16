@@ -23,13 +23,13 @@ export default function Error500() {
 						request.
 					</h2>
 					<Link href="https://github.com/jlachniet/Mood-Graph/issues/new">
-						<a className="mb-3 block text-blue-600">
+						<a className="mb-3 block text-blue-600 dark:text-blue-500">
 							<BsBugFill className="mb-1 mr-2 inline-block h-6 w-6" />
 							Submit a bug report.
 						</a>
 					</Link>
 					<Link href="/">
-						<a className="block text-blue-600">
+						<a className="block text-blue-600 dark:text-blue-500">
 							<BsCaretLeftFill className="mb-1 mr-1 inline-block h-6 w-6" />
 							Go to the home page.
 						</a>

@@ -53,7 +53,7 @@ export default function Dashboard() {
 			{pixels && settings ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
 					<div className="flex w-full max-w-xl flex-col rounded-md bg-transparent text-center shadow">
-						<header className="z-10 rounded-t-md bg-violet-400 px-6 py-4 shadow">
+						<header className="z-10 rounded-t-md bg-violet-400 px-6 py-4 shadow dark:bg-violet-800">
 							<h1 className="mb-2 font-display text-3xl font-extrabold">
 								Dashboard
 							</h1>
@@ -65,7 +65,7 @@ export default function Dashboard() {
 								Settings
 							</Button>
 						</header>
-						<main className="overflow-hidden rounded-b-md bg-neutral-50 p-4">
+						<main className="overflow-hidden rounded-b-md bg-neutral-50 p-4 dark:bg-neutral-800">
 							<Calendar
 								pixels={pixels}
 								settings={settings}

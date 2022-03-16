@@ -7,8 +7,10 @@ export function UpdateCard(props: {
 }) {
 	return (
 		<li
-			className={`rounded-md px-3 py-2 shadow-sm shadow-black/50 transition hover:scale-101 ${
-				props.isLatest ? 'bg-green-200' : 'bg-sky-200'
+			className={`rounded-md px-3 py-2 shadow-sm shadow-black/50 transition-transform hover:scale-101 ${
+				props.isLatest
+					? 'bg-green-200 dark:bg-green-800'
+					: 'bg-sky-200 dark:bg-sky-800'
 			}`}
 		>
 			<h3 className="font-display text-lg font-semibold">

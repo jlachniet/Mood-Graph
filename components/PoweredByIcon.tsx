@@ -12,7 +12,7 @@ export function PoweredByIcon(props: {
 			<Link href={props.url}>
 				<a>
 					<props.icon
-						className="h-6 w-6"
+						className="h-6 w-6 dark:!fill-neutral-200"
 						style={{
 							fill: props.color,
 							filter: props.brightness

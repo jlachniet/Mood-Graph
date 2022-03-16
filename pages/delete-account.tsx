@@ -29,7 +29,7 @@ export default function DeleteAccount() {
 			<Metadata title="Mood Graph - Delete Account" url="/delete-account" />
 			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				{user ? (
-					<main className="mx-3 max-w-md rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
+					<main className="mx-3 max-w-md rounded-md bg-neutral-50 px-6 py-7 text-center shadow dark:bg-neutral-800">
 						<h1 className="mb-4 font-display text-3xl font-extrabold">
 							Delete Account
 						</h1>

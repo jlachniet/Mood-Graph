@@ -4,6 +4,7 @@ module.exports = {
 		'./components/**/*.{js,jsx,ts,tsx}',
 		'./utils/**/*.{js,jsx,ts,tsx}',
 	],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			fontFamily: {
@@ -23,6 +24,10 @@ module.exports = {
 			brightness: {
 				115: '1.15',
 				120: '1.2',
+			},
+			transitionProperty: {
+				filter: 'filter',
+				width: 'width',
 			},
 			animation: {
 				heartbeat: 'heartbeat 1s ease-in-out infinite',

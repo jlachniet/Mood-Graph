@@ -32,9 +32,9 @@ export function CalendarMonth(props: {
 			<h3 className="font-display text-xl font-semibold">
 				{MONTH_NAMES[props.pixelMonth.month - 1]}
 			</h3>
-			<ul className="m-2 rounded-lg bg-neutral-100 p-3 leading-0 shadow shadow-neutral-900/50">
+			<ul className="m-2 rounded-lg bg-neutral-100 p-3 leading-0 shadow shadow-neutral-900/50 dark:bg-neutral-700">
 				<li
-					className="pb-2 font-display text-sm font-extrabold text-neutral-700"
+					className="pb-2 font-display text-sm font-extrabold text-neutral-700 dark:text-neutral-200"
 					aria-hidden
 				>
 					{['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (

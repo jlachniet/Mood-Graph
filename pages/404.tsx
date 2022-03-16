@@ -30,7 +30,7 @@ export default function Error404() {
 						could not be found.
 					</h2>
 					<Link href="/">
-						<a className="text-blue-600">
+						<a className="text-blue-600 dark:text-blue-500">
 							<BsCaretLeftFill className="mb-1 mr-1 inline-block h-6 w-6" />
 							Go to the home page.
 						</a>

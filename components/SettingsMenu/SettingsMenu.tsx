@@ -20,7 +20,7 @@ export function SettingsMenu(props: {
 	const [importedData, setImportedData] = useState<string | null>(null);
 
 	return (
-		<div className="absolute top-1/2 left-1/2 z-40 mr-4 w-fit max-w-md -translate-x-1/2 -translate-y-1/2 rounded-md bg-neutral-100 px-6 py-4 text-center shadow-md">
+		<div className="absolute top-1/2 left-1/2 z-40 mr-4 w-fit max-w-md -translate-x-1/2 -translate-y-1/2 rounded-md bg-neutral-100 px-6 py-4 text-center shadow-md dark:bg-neutral-900 dark:shadow-2xl">
 			{props.settingsMenuState === 'confirming' ? (
 				<SettingsMenuImportConfirmation {...props} />
 			) : props.settingsMenuState === 'importing' ? (

@@ -15,7 +15,7 @@ export default function Home() {
 		<>
 			<Metadata title="Mood Graph - Home" url="/" />
 			<div className="-mb-16 flex h-screenheightminusdoublenavbar items-center justify-center">
-				<header className="mx-3 rounded-md bg-neutral-50 px-6 py-7 text-center shadow">
+				<header className="mx-3 rounded-md bg-neutral-50 px-6 py-7 text-center shadow dark:bg-neutral-800">
 					<h1 className="mb-3 font-display text-4xl font-extrabold">
 						Mood Graph
 					</h1>
@@ -41,7 +41,7 @@ export default function Home() {
 					</div>
 				</header>
 			</div>
-			<div className="mx-auto mb-4 max-w-screen-md rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 md:rounded-t-lg">
+			<div className="mx-auto mb-4 max-w-screen-md rounded-t-2xl bg-neutral-50 shadow-sm shadow-neutral-800/50 dark:bg-neutral-800 md:rounded-t-lg">
 				<main id="about" className="px-5 py-4">
 					<h2 className="mb-3 font-display text-4xl font-extrabold">Hello!</h2>
 					<p className="mb-4">
@@ -49,11 +49,11 @@ export default function Home() {
 						Android app built by Julian Lachniet using Next.js and Firebase.
 						This entire project is open source and available on{' '}
 						<Link href="https://github.com/jlachniet/Mood-Graph">
-							<a className="text-blue-600">GitHub</a>
+							<a className="text-blue-600 dark:text-blue-500">GitHub</a>
 						</Link>
 						, and is deployed through Vercel.
 					</p>
-					<div className="mx-auto mb-4 w-fit rounded-md bg-neutral-200 px-4 py-3 shadow-sm shadow-black/50 transition hover:scale-101">
+					<div className="mx-auto mb-4 w-fit rounded-md bg-neutral-200 px-4 py-3 shadow-sm shadow-black/50 transition-transform hover:scale-101 dark:bg-neutral-700">
 						<h2 className="font-display font-semibold">How it works:</h2>
 						<ol className="ml-4 list-decimal">
 							<li>Set up daily reminders on your device</li>
@@ -64,7 +64,9 @@ export default function Home() {
 					<p className="mb-4 border-b border-neutral-500 pb-4">
 						Interested? Start keeping track of your mental health by{' '}
 						<Link href="/login">
-							<a className="text-blue-600">getting started!</a>
+							<a className="text-blue-600 dark:text-blue-500">
+								getting started!
+							</a>
 						</Link>{' '}
 						Not convinced yet? Keep reading to learn more about the project.
 					</p>
@@ -129,13 +131,13 @@ export default function Home() {
 				</main>
 				<div className="flex flex-col gap-2 px-3 py-2 text-right">
 					<Link href="/privacy-policy">
-						<a className="text-blue-600">Privacy Policy</a>
+						<a className="text-blue-600 dark:text-blue-500">Privacy Policy</a>
 					</Link>
 					<Link href="/delete-account">
-						<a className="text-blue-600">Delete Account</a>
+						<a className="text-blue-600 dark:text-blue-500">Delete Account</a>
 					</Link>
 				</div>
-				<footer className="bg-indigo-200 p-1 text-center">
+				<footer className="bg-indigo-200 p-1 text-center dark:bg-indigo-900">
 					Made with{' '}
 					<BsHeartFill className="mb-0.5 inline h-3 w-3 fill-fuchsia-500 drop-shadow" />{' '}
 					by Julian.
