@@ -1,12 +1,15 @@
 import { Navbar } from '../components/Navbar/Navbar';
 import '../styles/globals.css';
 import { initializeFirebase } from '../utils/firebase';
+import { useTheme } from '../utils/hooks/theme';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 
 const DynamicNextNProgress = dynamic(() => import('nextjs-progressbar'));
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+	useTheme();
+
 	initializeFirebase();
 
 	return (

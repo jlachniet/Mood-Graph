@@ -1,5 +1,6 @@
 import Logo from '../../public/icons/icon-responsive.svg';
 import { useDefaultAuthState } from '../../utils/hooks/firebase';
+import { useTheme } from '../../utils/hooks/theme';
 import { useWindowSize } from '../../utils/hooks/window';
 import { NavbarLink } from './NavbarLink';
 import Link from 'next/link';
@@ -9,9 +10,9 @@ import { BsBrightnessHighFill, BsList, BsMoonFill } from 'react-icons/bs';
 export function Navbar() {
 	const { user } = useDefaultAuthState();
 	const { windowWidth } = useWindowSize();
+	const [theme, setTheme] = useTheme();
 
 	const [isExpanded, setIsExpanded] = useState(false);
-	const [isDarkMode, setIsDarkMode] = useState(true);
 
 	function toggleIsExpanded() {
 		setIsExpanded(!isExpanded);
@@ -22,10 +23,6 @@ export function Navbar() {
 			setIsExpanded(false);
 		}
 	}, [windowWidth]);
-
-	useEffect(() => {
-		document.documentElement.classList.toggle('dark', isDarkMode);
-	}, [isDarkMode]);
 
 	return (
 		<nav className="sticky top-0 z-20 flex items-center justify-between border-b border-neutral-300 bg-neutral-100 py-2 pl-3 pr-4 font-display shadow-sm dark:border-neutral-700 dark:bg-neutral-800">
@@ -76,14 +73,14 @@ export function Navbar() {
 					</div>
 				</div>
 				<button className="ml-3 border-neutral-400">
-					{isDarkMode ? (
+					{theme === 'dark' ? (
 						<BsMoonFill
-							onClick={() => setIsDarkMode(false)}
+							onClick={() => setTheme('light')}
 							className="h-5 w-5 fill-sky-300 p-0.5 transition-filter duration-75 hover:brightness-50"
 						/>
 					) : (
 						<BsBrightnessHighFill
-							onClick={() => setIsDarkMode(true)}
+							onClick={() => setTheme('dark')}
 							className="h-5 w-5 fill-yellow-500 transition-filter duration-75 hover:brightness-50"
 						/>
 					)}
