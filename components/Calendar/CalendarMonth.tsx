@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/classnames-order */
 import { PixelMonth, PixelSelector } from '../../types/pixels';
 import { MONTH_NAMES } from '../../utils/dates';
 import { useWindowSize } from '../../utils/hooks/window';
@@ -29,13 +28,13 @@ export function CalendarMonth(props: {
 	);
 
 	return (
-		<li className="max-w-md mx-auto">
+		<li className="mx-auto max-w-md">
 			<h3 className="font-display text-xl font-semibold">
 				{MONTH_NAMES[props.pixelMonth.month - 1]}
 			</h3>
-			<ul className="m-2 leading-0 bg-neutral-100 p-3 rounded-lg shadow shadow-neutral-900/50">
+			<ul className="m-2 rounded-lg bg-neutral-100 p-3 leading-0 shadow shadow-neutral-900/50">
 				<li
-					className="pb-2 font-display font-extrabold text-sm text-neutral-700"
+					className="pb-2 font-display text-sm font-extrabold text-neutral-700"
 					aria-hidden
 				>
 					{['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (

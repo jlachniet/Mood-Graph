@@ -11,6 +11,7 @@ import { BsX } from 'react-icons/bs';
 export function SettingsMenuMain(props: {
 	settings: ClientUserSettings;
 	updateSettings: SettingsUpdater;
+	settingsMenuState: SettingsMenuState;
 	setSettingsMenuState: (state: SettingsMenuState) => void;
 	setImportedData: (data: string | null) => void;
 }) {

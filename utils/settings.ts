@@ -51,10 +51,10 @@ export function getInitialUserSettings(
 }
 
 /**
- * Checks whether the preffered start and end dates in a set of user settings
+ * Checks whether the preferred start and end dates in a set of user settings
  * are valid.
  * @param userSettings The user settings.
- * @returns True if the preffered start and end dates are valid, or a string
+ * @returns True if the preferred start and end dates are valid, or a string
  * describing the error otherwise.
  */
 export function checkUserSettingDates(
