@@ -19,13 +19,13 @@ import {
 	Title,
 	Tooltip,
 } from 'chart.js';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 export default function Graph() {
 	useAuthenticatedRoute();
 
-	const { user } = useDefaultAuthState();
 	const { pixels } = usePixels();
 
 	const [graphOptions, setGraphOptions] = useState<MovingAverageOption[]>([]);
@@ -108,11 +108,11 @@ export default function Graph() {
 	return (
 		<>
 			<Metadata title="Mood Graph - Graph" url="/graph" />
-			{graphData ? (
+			{pixels && graphOptions ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
 					<main className="flex w-full max-w-xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow">
 						<h1 className="mb-2 font-display text-3xl font-extrabold">Graph</h1>
-						{graphData && selectedGraphOption && (
+						{graphData && selectedGraphOption ? (
 							<>
 								<div>
 									<label htmlFor="averaging-options" className="mr-2">
@@ -185,6 +185,14 @@ export default function Graph() {
 									/>
 								</div>
 							</>
+						) : (
+							<p>
+								Add some days to your{' '}
+								<Link href="/dashboard">
+									<a className="text-blue-600">dashboard</a>
+								</Link>{' '}
+								to get started!
+							</p>
 						)}
 					</main>
 				</div>
