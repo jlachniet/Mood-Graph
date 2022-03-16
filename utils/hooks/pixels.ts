@@ -1,4 +1,4 @@
-import { Pixel, PixelUpdater, PixelValue } from '../../types/pixels';
+import { Pixel, PixelValue } from '../../types/pixels';
 import {
 	useAuthenticatedCollectionData,
 	useDefaultAuthState,
@@ -12,12 +12,12 @@ import {
 } from 'firebase/firestore';
 
 /**
- * A custom hook that returns a tuple containing the current user's pixels or
+ * A custom hook that returns an object containing the current user's pixels or
  * null if they aren't available, and a function to update a pixel.
  * @returns The hook
  */
-export function usePixels(): [Pixel[] | null, PixelUpdater] {
-	const [user] = useDefaultAuthState();
+export function usePixels() {
+	const { user } = useDefaultAuthState();
 	const pixels =
 		useAuthenticatedCollectionData<Pixel>((user) =>
 			collection(getFirestore(), 'users', user.uid, 'pixels')
@@ -38,5 +38,5 @@ export function usePixels(): [Pixel[] | null, PixelUpdater] {
 		}
 	}
 
-	return [pixels, updatePixel];
+	return { pixels, updatePixel };
 }

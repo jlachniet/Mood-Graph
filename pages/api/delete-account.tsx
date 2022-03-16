@@ -58,8 +58,8 @@ export default async function deleteAccount(
 		getAuth().deleteUser(uid);
 
 		res.status(200).json({ status: 'ok' });
-	} catch (err) {
-		console.error(err);
+	} catch (error) {
+		console.error(error);
 		res.status(403).json({ error: 'Forbidden' });
 	}
 }

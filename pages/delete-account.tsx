@@ -1,57 +1,68 @@
-import LoadingHeart from '../components/LoadingHeart';
-import { MoodGraphHead } from '../components/MoodGraphHead';
-import { Navbar } from '../components/Navbar';
+import { Button } from '../components/Form/Button';
+import { LinkButton } from '../components/Form/LinkButton';
+import { LoadingIcon } from '../components/LoadingIcon';
+import { Metadata } from '../components/Metadata/Metadata';
 import {
 	useAuthenticatedRoute,
 	useDefaultAuthState,
 } from '../utils/hooks/firebase';
-import router from 'next/router';
+import Router from 'next/router';
 
 export default function DeleteAccount() {
 	useAuthenticatedRoute();
 
-	const [user] = useDefaultAuthState();
+	const { user } = useDefaultAuthState();
 
 	async function deleteAccount() {
 		if (user) {
-			fetch('/api/delete-account', {
+			await fetch('/api/delete-account', {
 				method: 'POST',
 				body: JSON.stringify({ firebaseToken: await user.getIdToken(true) }),
 			});
 
-			router.push('/sign-out');
+			Router.push('/sign-out');
 		}
 	}
 
 	return (
 		<>
-			<MoodGraphHead
-				title="Mood Graph - Delete Account"
-				url="/delete-account"
-			/>
-			<Navbar />
-			<main className="p-4">
-				<h1 className="mb-2 font-display text-2xl font-extrabold">
-					Delete Account
-				</h1>
+			<Metadata title="Mood Graph - Delete Account" url="/delete-account" />
+			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				{user ? (
-					<>
-						<p className="mb-8">
-							<strong className="text-red-600">Warning: </strong>
-							By pressing the following button, your account and all of its data
-							will be deleted permanently!
+					<main className="mx-3 max-w-md rounded-md bg-neutral-50 px-6 py-7 text-center shadow dark:bg-neutral-800">
+						<h1 className="mb-4 font-display text-3xl font-extrabold">
+							Delete Account
+						</h1>
+						<strong className="mb-2 block">
+							Are you sure you want to delete your account?
+						</strong>
+						<p className="mb-4">
+							Deleting your account will delete your data from our service
+							permanently.{' '}
+							<strong className="text-red-600 underline underline-offset-1">
+								This action cannot be undone!
+							</strong>
 						</p>
-						<button
-							className="rounded bg-red-600 px-2 py-1 font-bold uppercase shadow-lg hover:bg-red-400"
+						<LinkButton
+							background="bg-neutral-500"
+							color="text-neutral-100"
+							href="/"
+							className="mr-2"
+						>
+							Cancel
+						</LinkButton>
+						<Button
 							onClick={deleteAccount}
+							background="bg-red-500"
+							color="text-neutral-100"
 						>
 							Delete Account
-						</button>
-					</>
+						</Button>
+					</main>
 				) : (
-					<LoadingHeart />
+					<LoadingIcon />
 				)}
-			</main>
+			</div>
 		</>
 	);
 }

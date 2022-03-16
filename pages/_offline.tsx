@@ -1,17 +1,19 @@
-import Head from 'next/head';
+import { FunctionalMetadata } from '../components/Metadata/FunctionalMetadata';
+import { BsWifiOff } from 'react-icons/bs';
 
 export default function Offline() {
 	return (
 		<>
-			<Head>
-				<title>Offline</title>
-			</Head>
-			<div className="flex h-screen items-center justify-center text-center font-display">
-				<main className="m-4">
-					<h1 className="mb-2 text-2xl font-extrabold">
-						You are currently offline.
-					</h1>
-					<h2 className="text-4xl">😔</h2>
+			<FunctionalMetadata title="Mood Graph - Offline" />
+			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
+				<main>
+					<div className="mx-auto mb-2 flex w-fit items-center">
+						<h1 className="mr-3 font-display text-3xl font-extrabold">
+							Offline
+						</h1>
+						<BsWifiOff className="h-12 w-12" />
+					</div>
+					<h2>Your device is currently offline.</h2>
 				</main>
 			</div>
 		</>

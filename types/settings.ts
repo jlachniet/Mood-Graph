@@ -41,3 +41,32 @@ export type SettingsUpdater = (
 	 */
 	settings: Partial<ClientUserSettings>
 ) => void;
+
+/**
+ * The state of the settings menu.
+ */
+export type SettingsMenuState =
+	/**
+	 * The settings menu is closed.
+	 */
+	| 'closed'
+	/**
+	 * The settings menu is open, and no upload is in progress.
+	 */
+	| 'open'
+	/**
+	 * The settings menu is open, and the user is confirming an import.
+	 */
+	| 'confirming'
+	/**
+	 * The settings menu is open, and the user is importing.
+	 */
+	| 'importing'
+	/**
+	 * The settings menu is open, and an import was successful.
+	 */
+	| 'success'
+	/**
+	 * The settings menu is open, and an import failed.
+	 */
+	| 'error';

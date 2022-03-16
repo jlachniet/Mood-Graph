@@ -12,9 +12,7 @@ export function getGoogleCalendarLink() {
 		action: 'TEMPLATE',
 		text: 'Mood Graph',
 		dates: `${reminderDate}/${reminderDate}`,
-		details: `How was your day today?
-
-https://moodgraph.app/dashboard`,
+		details: 'How was your day today?\n\nhttps://moodgraph.app/dashboard',
 		recur: 'RRULE:FREQ=DAILY',
 	};
 

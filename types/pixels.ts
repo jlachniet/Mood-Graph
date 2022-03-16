@@ -52,9 +52,9 @@ export interface PixelMonth {
  */
 export type PixelSelector = (
 	/**
-	 * The date to select, or null to clear the selection.
+	 * The pixel to select, or null to clear the selection.
 	 */
-	date: DateString | null
+	date: Pixel | null
 ) => void;
 
 /**
@@ -70,30 +70,3 @@ export type PixelUpdater = (
 	 */
 	value: PixelValue | null
 ) => void;
-
-/**
- * The state of the pixel uploader.
- */
-export type PixelUploaderState =
-	/**
-	 * The default state, no upload in progress.
-	 */
-	| 'default'
-	/**
-	 * The user has uploaded data, but hasn't confirmed that they want to
-	 * override their existing data.
-	 */
-	| 'confirming'
-	/**
-	 * The user has confirmed that they want to override their existing data and
-	 * the data is being imported.
-	 */
-	| 'importing'
-	/**
-	 * Data was successfully imported.
-	 */
-	| 'success'
-	/**
-	 * An error occurred while importing data.
-	 */
-	| 'error';

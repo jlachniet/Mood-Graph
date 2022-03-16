@@ -1,39 +1,120 @@
-import { MoodGraphHead } from '../components/MoodGraphHead';
-import { Navbar } from '../components/Navbar';
-import { getDateStringRange } from '../utils/dates';
+import { LoadingIcon } from '../components/LoadingIcon';
+import { Metadata } from '../components/Metadata/Metadata';
+import { MovingAverageOption } from '../types/math';
+import { getCurrentDateString, getDateStringRange } from '../utils/dates';
 import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
-import { getMovingAverage } from '../utils/math';
+import { getMovingAverage, MOVING_AVERAGE_OPTIONS } from '../utils/math';
+import { ThemeContext } from './_app';
 import {
 	CategoryScale,
-	LinearScale,
-	PointElement,
-	LineElement,
-	Title,
-	Tooltip,
-	Legend,
 	Chart,
 	ChartData,
+	ChartOptions,
+	Legend,
+	LinearScale,
+	LineElement,
+	PointElement,
+	Title,
+	Tooltip,
 } from 'chart.js';
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useContext, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 export default function Graph() {
 	useAuthenticatedRoute();
 
-	const [pixels] = usePixels();
-	const [data, setData] = useState<ChartData<'line'> | null>(null);
+	const { pixels } = usePixels();
+
+	const [theme] = useContext(ThemeContext);
+
+	const [graphOptions, setGraphOptions] = useState<MovingAverageOption[]>([]);
+	const [selectedGraphOption, setSelectedGraphOption] =
+		useState<MovingAverageOption | null>(null);
+
+	const [graphData, setGraphData] = useState<ChartData<'line'> | null>(null);
+
+	function getChartOptions(): ChartOptions<'line'> {
+		return {
+			elements: {
+				point: {
+					radius: 0,
+				},
+			},
+			scales: {
+				x: {
+					grid: {
+						color: '#d4d4d4',
+						lineWidth: 2,
+					},
+					ticks: {
+						color: theme === 'dark' ? '#fafafa' : '#171717',
+						font: {
+							family: 'Inter',
+							size: 13,
+						},
+						maxTicksLimit: 15,
+					},
+				},
+				y: {
+					min: 1,
+					max: 5,
+					grid: {
+						color: '#a3a3a3',
+						lineWidth: 2,
+					},
+					ticks: {
+						color: theme === 'dark' ? '#f5f5f5' : '#262626',
+						font: {
+							family: 'Inter',
+							size: 13,
+						},
+					},
+				},
+			},
+			aspectRatio: 1.5,
+			plugins: {
+				legend: {
+					display: false,
+				},
+			},
+		};
+	}
 
 	useEffect(() => {
 		if (pixels) {
-			const windowSize = Math.max(
+			const oldOptionsLength = graphOptions.length;
+
+			const options = [...MOVING_AVERAGE_OPTIONS].filter(
+				(option) => option.windowSize <= pixels.length
+			);
+
+			const autoWindowSize = Math.max(
 				Math.floor(Math.min(pixels.length / 10, 30)),
 				1
 			);
 
+			if (autoWindowSize > 1) {
+				options.unshift({
+					title: `Auto (Averaged over ${autoWindowSize} days)`,
+					windowSize: autoWindowSize,
+				});
+			}
+
+			setGraphOptions(options);
+
+			if (oldOptionsLength !== options.length) {
+				setSelectedGraphOption(options[0]);
+			}
+		}
+	}, [pixels, graphOptions.length]);
+
+	useEffect(() => {
+		if (pixels && graphOptions && selectedGraphOption) {
 			const graphDates = getDateStringRange(
-				pixels[0].dateString,
-				pixels[pixels.length - 1].dateString
+				pixels[0]?.dateString ?? getCurrentDateString(),
+				pixels[pixels.length - 1]?.dateString ?? getCurrentDateString()
 			);
 
 			const graphValues = getMovingAverage(
@@ -42,23 +123,23 @@ export default function Graph() {
 						pixels.find((pixel) => pixel.dateString === dateString)?.value ??
 						null
 				),
-				windowSize,
-				windowSize / 2
+				selectedGraphOption.windowSize,
+				selectedGraphOption.windowSize / 2
 			);
 
-			setData({
+			setGraphData({
 				labels: graphDates,
 				datasets: [
 					{
-						label: `Daily Mood (Averaged over ${windowSize} days)`,
+						label: `Daily Mood (Averaged over ${selectedGraphOption.windowSize} days)`,
 						data: graphValues,
-						borderColor: '#9c61fa',
-						backgroundColor: '#9c61fa',
+						borderColor: '#8b5cf6',
+						backgroundColor: '#8b5cf6',
 					},
 				],
 			});
 		}
-	}, [pixels]);
+	}, [pixels, graphOptions, selectedGraphOption]);
 
 	useEffect(() => {
 		Chart.register(
@@ -74,73 +155,58 @@ export default function Graph() {
 
 	return (
 		<>
-			<MoodGraphHead title="Mood Graph - Graph" url="/graph" />
-			<Navbar />
-			<div className="flex h-[calc(100vh-2.5rem)] items-center justify-center text-center font-display">
-				<main className="m-4">
-					<h1 className="mb-4 text-4xl font-extrabold">Graph</h1>
-
-					{data && (
-						<div className="w-[calc(100vw-1rem)] max-w-[40rem]">
-							<Line
-								options={{
-									elements: {
-										point: {
-											radius: 0,
-										},
-									},
-									scales: {
-										x: {
-											grid: {
-												color: '#634f6b',
-												lineWidth: 2,
-											},
-											ticks: {
-												color: '#dcd5e6',
-												font: {
-													family: 'Inter',
-													size: 13,
-												},
-												maxTicksLimit: 15,
-											},
-										},
-										y: {
-											min: 1,
-											max: 5,
-											grid: {
-												color: '#9681b8',
-												lineWidth: 2,
-											},
-											ticks: {
-												color: '#dcd5e6',
-												font: {
-													family: 'Inter',
-													size: 13,
-												},
-											},
-										},
-									},
-									aspectRatio: 1.5,
-									plugins: {
-										legend: {
-											labels: {
-												font: {
-													family: 'Inter',
-													size: 15,
-												},
-											},
-											onClick: () => {
-												return;
-											},
-										},
-									},
-								}}
-								data={data}
-							/>
-						</div>
-					)}
-				</main>
-			</div>
+			<Metadata title="Mood Graph - Graph" url="/graph" />
+			{pixels && graphOptions ? (
+				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
+					<main className="flex w-full max-w-xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
+						<h1 className="mb-2 font-display text-3xl font-extrabold">Graph</h1>
+						{graphData && selectedGraphOption ? (
+							<>
+								<div>
+									<label htmlFor="averaging-options" className="mr-2">
+										Graph mode:
+									</label>
+									<select
+										id="averaging-options"
+										className="mb-3 w-fit rounded-lg border border-neutral-700 px-1 py-0.5 shadow dark:border-transparent dark:bg-neutral-600"
+										value={graphOptions.indexOf(selectedGraphOption)}
+										onChange={(event) => {
+											setSelectedGraphOption(
+												graphOptions[parseInt(event.target.value)]
+											);
+										}}
+									>
+										{graphOptions.map((option, index) => (
+											<option key={option.title} value={index}>
+												{option.title}
+											</option>
+										))}
+									</select>
+								</div>
+								<div>
+									<Line
+										key="dark"
+										options={getChartOptions()}
+										data={graphData}
+									/>
+								</div>
+							</>
+						) : (
+							<p>
+								Add some days to your{' '}
+								<Link href="/dashboard">
+									<a className="text-blue-600 dark:text-blue-500">dashboard</a>
+								</Link>{' '}
+								to get started!
+							</p>
+						)}
+					</main>
+				</div>
+			) : (
+				<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
+					<LoadingIcon />
+				</div>
+			)}
 		</>
 	);
 }

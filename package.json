@@ -1,6 +1,6 @@
 {
 	"name": "mood-graph",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"private": true,
 	"scripts": {
 		"dev": "concurrently --names \"Next.js,Firebase\" -c \"blue.bold,yellow.bold\" \"next dev\" \"firebase emulators:start\"",
@@ -10,7 +10,6 @@
 		"lint": "tsc --noEmit --incremental false && next lint"
 	},
 	"dependencies": {
-		"@use-it/interval": "^1.0.0",
 		"chart.js": "^3.7.1",
 		"file-saver": "^2.0.5",
 		"firebase": "^9.6.2",
@@ -22,16 +21,16 @@
 		"react-chartjs-2": "^4.0.1",
 		"react-dom": "17.0.2",
 		"react-firebase-hooks": "^4.0.1",
-		"react-firebaseui": "^6.0.0",
 		"react-icons": "^4.3.1"
 	},
 	"devDependencies": {
+		"@svgr/webpack": "^6.2.1",
 		"@trivago/prettier-plugin-sort-imports": "^3.2.0",
 		"@types/file-saver": "^2.0.5",
 		"@types/lodash": "^4.14.178",
 		"@types/react": "^17.0.38",
-		"@typescript-eslint/eslint-plugin": "^5.10.2",
-		"@typescript-eslint/parser": "^5.10.2",
+		"@typescript-eslint/eslint-plugin": "^5.14.0",
+		"@typescript-eslint/parser": "^5.14.0",
 		"autoprefixer": "^10.4.2",
 		"concurrently": "^7.0.0",
 		"eslint": "8.6.0",

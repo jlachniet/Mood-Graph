@@ -51,24 +51,21 @@ export function getInitialUserSettings(
 }
 
 /**
- * Checks whether the preffered start and end dates in a set of user settings
+ * Checks whether the preferred start and end dates in a set of user settings
  * are valid.
  * @param userSettings The user settings.
- * @returns True if the preffered start and end dates are valid, or a string
+ * @returns True if the preferred start and end dates are valid, or a string
  * describing the error otherwise.
  */
 export function checkUserSettingDates(
-	userSettings: ClientUserSettings
+	settings: ClientUserSettings
 ): true | string {
-	if (
-		userSettings.preferredStartDate === '' ||
-		userSettings.preferredEndDate === ''
-	) {
+	if (settings.preferredStartDate === '' || settings.preferredEndDate === '') {
 		return 'Please enter a valid start and end date.';
 	}
 
-	const startYear = parseInt(userSettings.preferredStartDate.substring(0, 5));
-	const endYear = parseInt(userSettings.preferredEndDate.substring(0, 5));
+	const startYear = parseInt(settings.preferredStartDate.substring(0, 5));
+	const endYear = parseInt(settings.preferredEndDate.substring(0, 5));
 
 	if (startYear < 2000 || startYear > 2100) {
 		return 'Start year must be between 2000 and 2100.';
@@ -79,8 +76,7 @@ export function checkUserSettingDates(
 	}
 
 	if (
-		new Date(userSettings.preferredStartDate) >
-		new Date(userSettings.preferredEndDate)
+		new Date(settings.preferredStartDate) > new Date(settings.preferredEndDate)
 	) {
 		return 'Start date must be before end date.';
 	}

@@ -9,14 +9,11 @@ _A simple way to track your mental health._
 **Prerequisites**: [Node.js 14.x](https://nodejs.org/en/download/), [Yarn 1.x](https://classic.yarnpkg.com/en/docs/getting-started), [Firebase CLI 10.x](https://firebase.google.com/docs/cli)
 
 ```bash
-# Install dependencies
 yarn install
-
-# Ininitialize the Firebase project
 firebase init
 ```
 
-Create a `.env` file with the following environment variables:
+Create a `.env.local` file with the following environment variables:
 
 ```dosini
 FIREBASE_SERVICE_ACCOUNT="<your-service-account-json-uri-encoded>"
@@ -31,7 +28,6 @@ The project is intended to work correctly with the Firebase emulator tools in de
 To start the dev server:
 
 ```bash
-# Start the web server
 yarn dev
 ```
 
