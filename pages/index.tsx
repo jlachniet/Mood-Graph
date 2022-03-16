@@ -92,8 +92,10 @@ export default function Home() {
 						<UpdateCard
 							versionNumber="1.1.0"
 							releaseNotes={[
-								'Major UI overhaul.',
-								'Added some other new features hopefully.',
+								'New UI design built from scratch, with dark and light modes.',
+								'Added a setting to the graph page to switch the graph mode.',
+								'Added additional information to the home page.',
+								'Various tweaks, bug fixes, and performance improvements.',
 							]}
 							isLatest
 						/>
