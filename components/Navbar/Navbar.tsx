@@ -1,16 +1,16 @@
+import { ThemeContext } from '../../pages/_app';
 import Logo from '../../public/icons/icon-responsive.svg';
 import { useDefaultAuthState } from '../../utils/hooks/firebase';
-import { useTheme } from '../../utils/hooks/theme';
 import { useWindowSize } from '../../utils/hooks/window';
 import { NavbarLink } from './NavbarLink';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { BsBrightnessHighFill, BsList, BsMoonFill } from 'react-icons/bs';
 
 export function Navbar() {
 	const { user } = useDefaultAuthState();
 	const { windowWidth } = useWindowSize();
-	const [theme, setTheme] = useTheme();
+	const [theme, setTheme] = useContext(ThemeContext);
 
 	const [isExpanded, setIsExpanded] = useState(false);
 

@@ -5,10 +5,12 @@ import { getCurrentDateString, getDateStringRange } from '../utils/dates';
 import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
 import { getMovingAverage, MOVING_AVERAGE_OPTIONS } from '../utils/math';
+import { ThemeContext } from './_app';
 import {
 	CategoryScale,
 	Chart,
 	ChartData,
+	ChartOptions,
 	Legend,
 	LinearScale,
 	LineElement,
@@ -17,7 +19,7 @@ import {
 	Tooltip,
 } from 'chart.js';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 export default function Graph() {
@@ -25,11 +27,60 @@ export default function Graph() {
 
 	const { pixels } = usePixels();
 
+	const [theme] = useContext(ThemeContext);
+
 	const [graphOptions, setGraphOptions] = useState<MovingAverageOption[]>([]);
 	const [selectedGraphOption, setSelectedGraphOption] =
 		useState<MovingAverageOption | null>(null);
 
 	const [graphData, setGraphData] = useState<ChartData<'line'> | null>(null);
+
+	function getChartOptions(): ChartOptions<'line'> {
+		return {
+			elements: {
+				point: {
+					radius: 0,
+				},
+			},
+			scales: {
+				x: {
+					grid: {
+						color: '#d4d4d4',
+						lineWidth: 2,
+					},
+					ticks: {
+						color: theme === 'dark' ? '#fafafa' : '#171717',
+						font: {
+							family: 'Inter',
+							size: 13,
+						},
+						maxTicksLimit: 15,
+					},
+				},
+				y: {
+					min: 1,
+					max: 5,
+					grid: {
+						color: '#a3a3a3',
+						lineWidth: 2,
+					},
+					ticks: {
+						color: theme === 'dark' ? '#f5f5f5' : '#262626',
+						font: {
+							family: 'Inter',
+							size: 13,
+						},
+					},
+				},
+			},
+			aspectRatio: 1.5,
+			plugins: {
+				legend: {
+					display: false,
+				},
+			},
+		};
+	}
 
 	useEffect(() => {
 		if (pixels) {
@@ -134,50 +185,8 @@ export default function Graph() {
 								</div>
 								<div>
 									<Line
-										options={{
-											elements: {
-												point: {
-													radius: 0,
-												},
-											},
-											scales: {
-												x: {
-													grid: {
-														color: '#d4d4d4',
-														lineWidth: 2,
-													},
-													ticks: {
-														color: '#171717',
-														font: {
-															family: 'Inter',
-															size: 13,
-														},
-														maxTicksLimit: 15,
-													},
-												},
-												y: {
-													min: 1,
-													max: 5,
-													grid: {
-														color: '#a3a3a3',
-														lineWidth: 2,
-													},
-													ticks: {
-														color: '#262626',
-														font: {
-															family: 'Inter',
-															size: 13,
-														},
-													},
-												},
-											},
-											aspectRatio: 1.5,
-											plugins: {
-												legend: {
-													display: false,
-												},
-											},
-										}}
+										key="dark"
+										options={getChartOptions()}
 										data={graphData}
 									/>
 								</div>
