@@ -33,7 +33,6 @@ export default function Dashboard() {
 						/>
 					) : (
 						<SettingsMenu
-							pixels={pixels}
 							settings={settings}
 							updateSettings={updateSettings}
 							settingsMenuState={settingsMenuState}
@@ -41,10 +40,12 @@ export default function Dashboard() {
 						/>
 					)}
 					<div
-						className="fixed inset-0 z-30 cursor-pointer bg-neutral-900 opacity-50"
+						className="fixed inset-0 z-30 bg-neutral-900 opacity-50"
 						onClick={() => {
-							setSelectedPixel(null);
-							setSettingsMenuState('closed');
+							if (settingsMenuState !== 'importing') {
+								setSelectedPixel(null);
+								setSettingsMenuState('closed');
+							}
 						}}
 					/>
 				</>

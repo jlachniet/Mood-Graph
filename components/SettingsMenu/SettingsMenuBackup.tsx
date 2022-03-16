@@ -1,17 +1,20 @@
-import { Pixel } from '../../types/pixels';
 import { SettingsMenuState } from '../../types/settings';
 import { getCurrentDateString } from '../../utils/dates';
 import { saveJSON } from '../../utils/files';
+import { usePixels } from '../../utils/hooks/pixels';
 import { Button } from '../Form/Button';
 import { useEffect, useState } from 'react';
 
 export function SettingsMenuBackup(props: {
-	pixels: Pixel[];
 	setSettingsMenuState: (state: SettingsMenuState) => void;
+	setImportedData: (data: string | null) => void;
 }) {
+	const { pixels } = usePixels();
+
 	const [fileReader] = useState(new FileReader());
 
 	const setSettingsMenuState = props.setSettingsMenuState;
+	const setImportedData = props.setImportedData;
 
 	useEffect(() => {
 		fileReader.onload = (data) => {
@@ -21,9 +24,10 @@ export function SettingsMenuBackup(props: {
 				throw new Error('Uploaded data was not a string');
 			}
 
+			setImportedData(uploadedData);
 			setSettingsMenuState('confirming');
 		};
-	}, [fileReader, setSettingsMenuState]);
+	}, [fileReader, setSettingsMenuState, setImportedData]);
 
 	return (
 		<div>
@@ -46,10 +50,7 @@ export function SettingsMenuBackup(props: {
 			</label>
 			<Button
 				onClick={() =>
-					saveJSON(
-						`Mood Graph Backup (${getCurrentDateString()}).json`,
-						props.pixels
-					)
+					saveJSON(`Mood Graph Backup (${getCurrentDateString()}).json`, pixels)
 				}
 				background="bg-sky-500"
 				color="text-neutral-100"

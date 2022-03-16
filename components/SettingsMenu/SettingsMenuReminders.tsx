@@ -1,5 +1,6 @@
 import { getGoogleCalendarLink } from '../../utils/calendar';
 import { LinkButton } from '../Form/LinkButton';
+import { SiGooglecalendar } from 'react-icons/si';
 
 export function SettingsMenuReminders() {
 	return (
@@ -13,6 +14,7 @@ export function SettingsMenuReminders() {
 				color="text-neutral-100"
 				target="_blank"
 			>
+				<SiGooglecalendar className="inline-block h-5 w-5 mr-1.5 mb-0.5" />
 				Add to Google Calendar
 			</LinkButton>
 		</div>
