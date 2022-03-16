@@ -4,8 +4,10 @@ import { saveJSON } from '../../utils/files';
 import { usePixels } from '../../utils/hooks/pixels';
 import { Button } from '../Form/Button';
 import { useEffect, useState } from 'react';
+import { BiSad } from 'react-icons/bi';
 
 export function SettingsMenuBackup(props: {
+	settingsMenuState: SettingsMenuState;
 	setSettingsMenuState: (state: SettingsMenuState) => void;
 	setImportedData: (data: string | null) => void;
 }) {
@@ -57,6 +59,16 @@ export function SettingsMenuBackup(props: {
 			>
 				Export Data
 			</Button>
+			{props.settingsMenuState === 'success' && (
+				<p className="mt-3 font-display font-semibold text-green-600">
+					Imported successfully!
+				</p>
+			)}
+			{props.settingsMenuState === 'error' && (
+				<p className="mt-3 font-display font-semibold text-red-600">
+					Failed to import. <BiSad className="inline-block h-6 w-6 pb-0.5" />
+				</p>
+			)}
 		</div>
 	);
 }

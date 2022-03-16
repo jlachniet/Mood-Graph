@@ -14,7 +14,7 @@ export function SettingsMenuReminders() {
 				color="text-neutral-100"
 				target="_blank"
 			>
-				<SiGooglecalendar className="inline-block h-5 w-5 mr-1.5 mb-0.5" />
+				<SiGooglecalendar className="mr-1.5 mb-0.5 inline-block h-5 w-5" />
 				Add to Google Calendar
 			</LinkButton>
 		</div>
