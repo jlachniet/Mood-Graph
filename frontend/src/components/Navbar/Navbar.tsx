@@ -1,17 +1,17 @@
 import Logo from '../../../public/icons/icon-responsive.svg';
-import { ThemeContext } from '../../pages/_app';
 import { useDefaultAuthState } from '../../utils/hooks/firebase';
+import { useThemeContext } from '../../utils/hooks/theme';
 import { useWindowSize } from '../../utils/hooks/window';
 import { NavbarLink } from './NavbarLink';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsBrightnessHighFill, BsList, BsMoonFill } from 'react-icons/bs';
 import { SiGithub } from 'react-icons/si';
 
 export function Navbar() {
 	const { user } = useDefaultAuthState();
 	const { windowWidth } = useWindowSize();
-	const [theme, setTheme] = useContext(ThemeContext);
+	const { theme, setTheme } = useThemeContext();
 
 	const [isExpanded, setIsExpanded] = useState(false);
 

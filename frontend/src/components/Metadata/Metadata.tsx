@@ -1,11 +1,10 @@
-import { ThemeContext } from '../../pages/_app';
 import { RelativeUrl } from '../../types/url';
+import { useThemeContext } from '../../utils/hooks/theme';
 import Head from 'next/head';
-import { useContext } from 'react';
 import { WebApplication, WithContext } from 'schema-dts';
 
 export function Metadata(props: { title: string; url: RelativeUrl }) {
-	const [theme] = useContext(ThemeContext);
+	const { theme } = useThemeContext();
 
 	return (
 		<Head>
