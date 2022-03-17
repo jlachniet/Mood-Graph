@@ -1,5 +1,5 @@
+import Logo from '../../../public/icons/icon-responsive.svg';
 import { ThemeContext } from '../../pages/_app';
-import Logo from '../../public/icons/icon-responsive.svg';
 import { useDefaultAuthState } from '../../utils/hooks/firebase';
 import { useWindowSize } from '../../utils/hooks/window';
 import { NavbarLink } from './NavbarLink';

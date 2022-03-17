@@ -1,8 +1,8 @@
+import Logo from '../../public/icons/icon-responsive.svg';
 import { LinkPill } from '../components/Form/LinkPill';
 import { Metadata } from '../components/Metadata/Metadata';
 import { PoweredByIcon } from '../components/PoweredByIcon';
 import { UpdateCard } from '../components/UpdateCard';
-import Logo from '../public/icons/icon-responsive.svg';
 import { useDefaultAuthState } from '../utils/hooks/firebase';
 import Link from 'next/link';
 import { BsHeartFill } from 'react-icons/bs';
