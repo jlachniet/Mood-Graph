@@ -27,7 +27,7 @@ export declare global {
 
 	// Needs to be "var", not "let" or "const"
 	// https://stackoverflow.com/questions/59459312/using-globalthis-in-typescript
-	
+
 	/**
 	 * Whether to disable Workbox logging.
 	 */
