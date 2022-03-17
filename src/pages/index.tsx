@@ -90,6 +90,14 @@ export default function Home() {
 					</h2>
 					<ul className="mb-8 space-y-4">
 						<UpdateCard
+							versionNumber="1.1.1"
+							releaseNotes={[
+								'Fixed a bug with theming.',
+								'Made a few small UI tweaks.',
+							]}
+							isLatest
+						/>
+						<UpdateCard
 							versionNumber="1.1.0"
 							releaseNotes={[
 								'New UI design built from scratch, with dark and light modes.',
@@ -97,7 +105,6 @@ export default function Home() {
 								'Added additional information to the home page.',
 								'Various tweaks, bug fixes, and performance improvements.',
 							]}
-							isLatest
 						/>
 						<UpdateCard
 							versionNumber="1.0.0"
