@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+
+/** @type {import('tailwindcss/tailwind-config').TailwindConfig} */
+const config = {
 	content: ['./src/**/*.{js,jsx,ts,tsx,css}'],
 	darkMode: 'class',
 	theme: {
@@ -44,3 +47,5 @@ module.exports = {
 		},
 	},
 };
+
+module.exports = config;
