@@ -25,8 +25,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 	const [theme, setTheme] = useState<Theme>('dark');
 
 	useEffect(() => {
-		setSyncedTheme(
-			localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
+		setTimeout(() =>
+			setSyncedTheme(
+				localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
+			)
 		);
 	}, []);
 

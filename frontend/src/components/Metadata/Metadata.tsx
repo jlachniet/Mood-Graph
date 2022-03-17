@@ -1,8 +1,12 @@
+import { ThemeContext } from '../../pages/_app';
 import { RelativeUrl } from '../../types/url';
 import Head from 'next/head';
+import { useContext } from 'react';
 import { WebApplication, WithContext } from 'schema-dts';
 
 export function Metadata(props: { title: string; url: RelativeUrl }) {
+	const [theme] = useContext(ThemeContext);
+
 	return (
 		<Head>
 			<title>{props.title}</title>
@@ -12,8 +16,11 @@ export function Metadata(props: { title: string; url: RelativeUrl }) {
 				content="A simple way to track your mental health."
 			/>
 			<meta name="author" content="Julian Lachniet" />
-			<meta name="color-scheme" content="dark" />
-			<meta name="theme-color" content="#262626" />
+			<meta name="color-scheme" content={theme} />
+			<meta
+				name="theme-color"
+				content={theme === 'dark' ? '#262626' : '#f5f5f5'}
+			/>
 
 			<meta property="og:title" content={props.title} />
 			<meta property="og:type" content="website" />
