@@ -3,7 +3,7 @@ import { Metadata } from '../components/Metadata/Metadata';
 import { MovingAverageOption } from '../types/math';
 import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
-import { ThemeContext, useThemeContext } from '../utils/hooks/theme';
+import { useThemeContext } from '../utils/hooks/theme';
 import { getMovingAverage, MOVING_AVERAGE_OPTIONS } from '../utils/math';
 import { getCurrentDateString, getDateStringRange } from '../utils/time';
 import {
@@ -16,7 +16,7 @@ import {
 	PointElement,
 } from 'chart.js';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 export default function Graph() {
