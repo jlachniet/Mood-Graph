@@ -3,7 +3,7 @@ import { Metadata } from '../components/Metadata/Metadata';
 import { MovingAverageOption } from '../types/math';
 import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
-import { ThemeContext } from '../utils/hooks/theme';
+import { ThemeContext, useThemeContext } from '../utils/hooks/theme';
 import { getMovingAverage, MOVING_AVERAGE_OPTIONS } from '../utils/math';
 import { getCurrentDateString, getDateStringRange } from '../utils/time';
 import {
@@ -11,12 +11,9 @@ import {
 	Chart,
 	ChartData,
 	ChartOptions,
-	Legend,
 	LinearScale,
 	LineElement,
 	PointElement,
-	Title,
-	Tooltip,
 } from 'chart.js';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
@@ -27,7 +24,7 @@ export default function Graph() {
 
 	const { pixels } = usePixels();
 
-	const { theme } = useContext(ThemeContext);
+	const { theme } = useThemeContext();
 
 	const [graphOptions, setGraphOptions] = useState<MovingAverageOption[]>([]);
 	const [selectedGraphOption, setSelectedGraphOption] =
@@ -77,6 +74,9 @@ export default function Graph() {
 			plugins: {
 				legend: {
 					display: false,
+				},
+				tooltip: {
+					enabled: false,
 				},
 			},
 		};
@@ -142,15 +142,7 @@ export default function Graph() {
 	}, [pixels, graphOptions, selectedGraphOption]);
 
 	useEffect(() => {
-		Chart.register(
-			CategoryScale,
-			LinearScale,
-			PointElement,
-			LineElement,
-			Title,
-			Tooltip,
-			Legend
-		);
+		Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
 	}, []);
 
 	return (
@@ -159,7 +151,7 @@ export default function Graph() {
 			{pixels && graphOptions ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
 					<main className="flex w-full max-w-xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
-						<h1 className="mb-2 font-display text-3xl font-extrabold">Graph</h1>
+						<h1 className="mb-4 font-display text-3xl font-extrabold">Graph</h1>
 						{graphData && selectedGraphOption ? (
 							<>
 								<div>
@@ -168,7 +160,7 @@ export default function Graph() {
 									</label>
 									<select
 										id="averaging-options"
-										className="mb-3 w-fit rounded-lg border border-neutral-700 px-1 py-0.5 shadow dark:border-transparent dark:bg-neutral-600"
+										className="mb-3 w-fit rounded-lg border border-neutral-700 bg-neutral-50 px-1 py-0.5 shadow dark:border-transparent dark:bg-neutral-600"
 										value={graphOptions.indexOf(selectedGraphOption)}
 										onChange={(event) => {
 											setSelectedGraphOption(
