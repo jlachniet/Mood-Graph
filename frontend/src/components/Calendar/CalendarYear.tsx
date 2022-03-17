@@ -7,7 +7,7 @@ export function CalendarYear(props: {
 }) {
 	return (
 		<li>
-			<h2 className="mb-2 font-display text-3xl font-extrabold">
+			<h2 className="my-2 font-display text-3xl font-extrabold">
 				{props.pixelYear.year}
 			</h2>
 			<ul>

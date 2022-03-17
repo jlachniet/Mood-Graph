@@ -3,9 +3,9 @@ import { Metadata } from '../components/Metadata/Metadata';
 import { MovingAverageOption } from '../types/math';
 import { useAuthenticatedRoute } from '../utils/hooks/firebase';
 import { usePixels } from '../utils/hooks/pixels';
+import { ThemeContext } from '../utils/hooks/theme';
 import { getMovingAverage, MOVING_AVERAGE_OPTIONS } from '../utils/math';
 import { getCurrentDateString, getDateStringRange } from '../utils/time';
-import { ThemeContext } from './_app';
 import {
 	CategoryScale,
 	Chart,
@@ -27,7 +27,7 @@ export default function Graph() {
 
 	const { pixels } = usePixels();
 
-	const [theme] = useContext(ThemeContext);
+	const { theme } = useContext(ThemeContext);
 
 	const [graphOptions, setGraphOptions] = useState<MovingAverageOption[]>([]);
 	const [selectedGraphOption, setSelectedGraphOption] =

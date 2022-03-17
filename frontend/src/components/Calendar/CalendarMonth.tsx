@@ -29,10 +29,10 @@ export function CalendarMonth(props: {
 
 	return (
 		<li className="mx-auto max-w-md">
-			<h3 className="font-display text-xl font-semibold">
+			<h3 className="mb-3 mt-4 font-display text-xl font-semibold">
 				{MONTH_NAMES[props.pixelMonth.month - 1]}
 			</h3>
-			<ul className="m-2 rounded-lg bg-neutral-100 p-3 leading-0 shadow shadow-neutral-900/50 dark:bg-neutral-700">
+			<ul className="leading-0">
 				<li
 					className="pb-2 font-display text-sm font-extrabold text-neutral-700 dark:text-neutral-200"
 					aria-hidden
