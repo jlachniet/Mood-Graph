@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2
+
+- Fixed an addition bug with theming.
+- Removed tooltips from the graph.
+
 ## 1.1.1
 
 - Fixed a bug with theming.

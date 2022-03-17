@@ -90,12 +90,19 @@ export default function Home() {
 					</h2>
 					<ul className="mb-8 space-y-4">
 						<UpdateCard
+							versionNumber="1.1.2"
+							releaseNotes={[
+								'Fixed an addition bug with theming.',
+								'Removed tooltips from the graph.',
+							]}
+							isLatest
+						/>
+						<UpdateCard
 							versionNumber="1.1.1"
 							releaseNotes={[
 								'Fixed a bug with theming.',
 								'Made a few small UI tweaks.',
 							]}
-							isLatest
 						/>
 						<UpdateCard
 							versionNumber="1.1.0"
