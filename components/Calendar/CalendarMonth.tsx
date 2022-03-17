@@ -1,6 +1,6 @@
 import { PixelMonth, PixelSelector } from '../../types/pixels';
-import { MONTH_NAMES } from '../../utils/dates';
 import { useWindowSize } from '../../utils/hooks/window';
+import { MONTH_NAMES } from '../../utils/time';
 import { CalendarDay } from './CalendarDay';
 import { CalendarDaySpacer } from './CalendarDaySpacer';
 import { chunk } from 'lodash';

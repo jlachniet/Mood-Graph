@@ -5,7 +5,7 @@ import {
 	getFirstDateStringOfMonth,
 	getLastDateStringOfMonth,
 	getMaxDateString,
-} from './dates';
+} from './time';
 
 /**
  * Gets a set of client user settings from a set of pixels and

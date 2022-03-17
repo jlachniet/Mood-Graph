@@ -1,6 +1,6 @@
 import { Pixel, PixelSelector } from '../../types/pixels';
-import { getCurrentDateString } from '../../utils/dates';
 import { PIXEL_COLORS } from '../../utils/pixels';
+import { getCurrentDateString } from '../../utils/time';
 
 export function CalendarDay(props: {
 	pixel: Pixel;
