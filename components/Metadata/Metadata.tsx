@@ -12,8 +12,8 @@ export function Metadata(props: { title: string; url: RelativeUrl }) {
 				content="A simple way to track your mental health."
 			/>
 			<meta name="author" content="Julian Lachniet" />
-			<meta name="color-scheme" content="light" />
-			<meta name="theme-color" content="#fafafa" />
+			<meta name="color-scheme" content="dark" />
+			<meta name="theme-color" content="#262626" />
 
 			<meta property="og:title" content={props.title} />
 			<meta property="og:type" content="website" />
