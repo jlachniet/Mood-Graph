@@ -1,12 +1,9 @@
-import { MoodGraphProcess } from '../../types/environment';
 import { isServiceAccount } from '../../types/guards/firebase';
 import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 import { chunk } from 'lodash';
 import { NextApiRequest, NextApiResponse } from 'next';
-
-declare const process: MoodGraphProcess;
 
 /**
  * The /api/delete-account endpoint.
@@ -37,7 +34,9 @@ export default async function deleteAccount(
 
 	try {
 		const uid = (
-			await getAuth().verifyIdToken(JSON.parse(req.body).firebaseToken)
+			await getAuth().verifyIdToken(
+				(JSON.parse(req.body) as { firebaseToken: string }).firebaseToken
+			)
 		).uid;
 
 		const pixelDocs = (

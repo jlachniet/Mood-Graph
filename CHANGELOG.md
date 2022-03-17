@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1
+
+- Fixed a bug with theming.
+- Made a few small UI tweaks.
+
 ## 1.1.0
 
 - New UI design built from scratch, with dark and light modes.

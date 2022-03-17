@@ -15,6 +15,6 @@ export default withPWA({
 		dest: 'public',
 	},
 	eslint: {
-		dirs: ['components', 'pages', 'types', 'utils'],
+		dirs: ['src'],
 	},
 });

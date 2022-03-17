@@ -1,7 +1,7 @@
 import { SettingsMenuState } from '../../types/settings';
-import { getCurrentDateString } from '../../utils/dates';
 import { saveJSON } from '../../utils/files';
 import { usePixels } from '../../utils/hooks/pixels';
+import { getCurrentDateString } from '../../utils/time';
 import { Button } from '../Form/Button';
 import { useEffect, useState } from 'react';
 import { BiSad } from 'react-icons/bi';

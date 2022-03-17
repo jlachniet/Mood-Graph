@@ -1,6 +1,6 @@
 import { DateString } from '../types/dates';
 import { Pixel, PixelMonth, PixelValue, PixelYear } from '../types/pixels';
-import { getDateStringRange } from './dates';
+import { getDateStringRange } from './time';
 import { groupBy } from 'lodash';
 
 export const PIXEL_COLORS: Record<PixelValue | 'null', string> = {

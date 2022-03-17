@@ -1,4 +1,4 @@
-import { getGoogleCalendarLink } from '../../utils/calendar';
+import { getGoogleCalendarLink } from '../../utils/time';
 import { LinkButton } from '../Form/LinkButton';
 import { SiGooglecalendar } from 'react-icons/si';
 

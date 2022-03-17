@@ -1,11 +1,12 @@
+import Logo from '../../../public/icons/icon-responsive.svg';
 import { ThemeContext } from '../../pages/_app';
-import Logo from '../../public/icons/icon-responsive.svg';
 import { useDefaultAuthState } from '../../utils/hooks/firebase';
 import { useWindowSize } from '../../utils/hooks/window';
 import { NavbarLink } from './NavbarLink';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import { BsBrightnessHighFill, BsList, BsMoonFill } from 'react-icons/bs';
+import { SiGithub } from 'react-icons/si';
 
 export function Navbar() {
 	const { user } = useDefaultAuthState();
@@ -85,6 +86,11 @@ export function Navbar() {
 						/>
 					)}
 				</button>
+				<Link href="https://github.com/jlachniet/Mood-Graph">
+					<a>
+						<SiGithub className="ml-3 h-5 w-5 hover:contrast-50" />
+					</a>
+				</Link>
 			</div>
 		</nav>
 	);
