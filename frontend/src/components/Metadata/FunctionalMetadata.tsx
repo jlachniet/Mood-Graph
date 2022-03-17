@@ -1,12 +1,18 @@
+import { useThemeContext } from '../../utils/hooks/theme';
 import Head from 'next/head';
 
 export function FunctionalMetadata(props: { title: string }) {
+	const { theme } = useThemeContext();
+
 	return (
 		<Head>
 			<title>{props.title}</title>
 
-			<meta name="color-scheme" content="light" />
-			<meta name="theme-color" content="#fafafa" />
+			<meta name="color-scheme" content={theme} />
+			<meta
+				name="theme-color"
+				content={theme === 'dark' ? '#262626' : '#f5f5f5'}
+			/>
 
 			<link rel="icon" href="/icons/icon-32x32.png" sizes="32x32" />
 			<link rel="icon" href="/icons/icon-192x192.png" sizes="192x192" />
