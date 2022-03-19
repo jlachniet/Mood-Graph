@@ -1,5 +1,6 @@
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
+import { PageHeading } from '../components/Text/PageHeading';
 import { useAuthenticatedRoute } from '../hooks/firebase';
 import { usePixels } from '../hooks/pixels';
 import { useThemeContext } from '../hooks/theme';
@@ -171,7 +172,7 @@ export default function Graph() {
 			{pixels && graphOptions.length > 0 ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
 					<main className="flex w-full max-w-2xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
-						<h1 className="mb-4 font-display text-3xl font-extrabold">Graph</h1>
+						<PageHeading className="mb-4">Graph</PageHeading>
 						{graphData && selectedGraphOption !== null && pixels.length >= 2 ? (
 							<>
 								<div className="mb-2">

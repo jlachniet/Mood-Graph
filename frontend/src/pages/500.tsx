@@ -1,4 +1,5 @@
 import { FunctionalMetadata } from '../components/Metadata/FunctionalMetadata';
+import { PageHeading } from '../components/Text/PageHeading';
 import Link from 'next/link';
 import {
 	BsBugFill,
@@ -13,9 +14,7 @@ export default function Error500() {
 			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				<main className="px-4 text-center">
 					<div className="mx-auto mb-4 flex w-fit items-center">
-						<h1 className="mr-3 font-display text-3xl font-extrabold">
-							Error 500
-						</h1>
+						<PageHeading className="mr-3">Error 500</PageHeading>
 						<BsExclamationTriangleFill className="h-6 w-6" />
 					</div>
 					<h2 className="mb-6">

@@ -1,4 +1,5 @@
 import { Metadata } from '../components/Metadata/Metadata';
+import { PageHeading } from '../components/Text/PageHeading';
 import Link from 'next/link';
 
 export default function PrivacyPolicy() {
@@ -7,9 +8,7 @@ export default function PrivacyPolicy() {
 			<Metadata title="Mood Graph - Privacy Policy" url="/privacy-policy" />
 			<div className="px-3 py-2 leading-5">
 				<main className="m-auto max-w-2xl rounded bg-neutral-100 px-4 py-2 dark:bg-neutral-800">
-					<h1 className="my-2 font-display text-2xl font-extrabold">
-						Privacy Policy
-					</h1>
+					<PageHeading className="my-2 text-2xl">Privacy Policy</PageHeading>
 					<p>
 						Julian Lachniet built the Mood Graph app as an Open Source app. This
 						SERVICE is provided by Julian Lachniet at no cost and is intended

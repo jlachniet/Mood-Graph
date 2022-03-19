@@ -2,6 +2,7 @@ import { Button } from '../components/Form/Button';
 import { LinkButton } from '../components/Form/LinkButton';
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
+import { PageHeading } from '../components/Text/PageHeading';
 import { useAuthenticatedRoute, useDefaultAuthState } from '../hooks/firebase';
 import Router from 'next/router';
 
@@ -27,9 +28,7 @@ export default function DeleteAccount() {
 			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				{user ? (
 					<main className="mx-3 max-w-md rounded-md bg-neutral-50 px-6 py-7 text-center shadow dark:bg-neutral-800">
-						<h1 className="mb-4 font-display text-3xl font-extrabold">
-							Delete Account
-						</h1>
+						<PageHeading className="mb-4">Delete Account</PageHeading>
 						<strong className="mb-2 block">
 							Are you sure you want to delete your account?
 						</strong>

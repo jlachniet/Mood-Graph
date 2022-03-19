@@ -2,6 +2,7 @@ import Logo from '../../public/icons/icon-responsive.svg';
 import { LinkPill } from '../components/Form/LinkPill';
 import { Metadata } from '../components/Metadata/Metadata';
 import { PoweredByIcon } from '../components/PoweredByIcon';
+import { PageHeading } from '../components/Text/PageHeading';
 import { UpdateCard } from '../components/UpdateCard';
 import { useDefaultAuthState } from '../hooks/firebase';
 import Link from 'next/link';
@@ -16,9 +17,7 @@ export default function Home() {
 			<Metadata title="Mood Graph - Home" url="/" />
 			<div className="-mb-16 flex h-screenheightminusdoublenavbar items-center justify-center">
 				<header className="mx-3 rounded-md bg-neutral-50 px-6 py-7 text-center shadow dark:bg-neutral-800">
-					<h1 className="mb-3 font-display text-4xl font-extrabold">
-						Mood Graph
-					</h1>
+					<PageHeading className="mb-3 text-4xl">Mood Graph</PageHeading>
 					<div className="mb-2">
 						<Logo width={96} height={96} className="inline-block" alt="" />
 					</div>

@@ -21,8 +21,8 @@ function isUndefined(value: unknown): value is undefined {
  * @param value The value to check.
  * @returns Whether the value is a string.
  */
-export function isString(value: unknown): value is string | undefined {
-	return typeof value === 'string' || value === undefined;
+export function isString(value: unknown): value is string {
+	return typeof value === 'string';
 }
 
 /**
