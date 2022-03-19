@@ -170,7 +170,7 @@ export default function Graph() {
 			<Metadata title="Mood Graph - Graph" url="/graph" />
 			{pixels && graphOptions.length > 0 ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
-					<main className="flex w-full max-w-xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
+					<main className="flex w-full max-w-2xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
 						<h1 className="mb-4 font-display text-3xl font-extrabold">Graph</h1>
 						{graphData && selectedGraphOption !== null && pixels.length >= 2 ? (
 							<>
