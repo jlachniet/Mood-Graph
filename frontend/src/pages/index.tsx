@@ -3,7 +3,7 @@ import { LinkPill } from '../components/Form/LinkPill';
 import { Metadata } from '../components/Metadata/Metadata';
 import { PoweredByIcon } from '../components/PoweredByIcon';
 import { UpdateCard } from '../components/UpdateCard';
-import { useDefaultAuthState } from '../utils/hooks/firebase';
+import { useDefaultAuthState } from '../hooks/firebase';
 import Link from 'next/link';
 import { BsHeartFill } from 'react-icons/bs';
 import { SiFirebase, SiNextdotjs, SiReact, SiTypescript } from 'react-icons/si';

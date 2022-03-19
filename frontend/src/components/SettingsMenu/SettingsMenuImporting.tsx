@@ -1,10 +1,10 @@
+import { useDefaultAuthState } from '../../hooks/firebase';
 import { isPixelArray } from '../../types/guards/pixels';
 import {
 	ClientUserSettings,
 	SettingsMenuState,
 	SettingsUpdater,
 } from '../../types/settings';
-import { useDefaultAuthState } from '../../utils/hooks/firebase';
 import { getInitialUserSettings } from '../../utils/settings';
 import { doc, getFirestore, writeBatch } from 'firebase/firestore';
 import { chunk } from 'lodash';

@@ -1,5 +1,5 @@
+import { useWindowSize } from '../../hooks/window';
 import { PixelMonth, PixelSelector } from '../../types/pixels';
-import { useWindowSize } from '../../utils/hooks/window';
 import { MONTH_NAMES } from '../../utils/time';
 import { CalendarDay } from './CalendarDay';
 import { CalendarDaySpacer } from './CalendarDaySpacer';

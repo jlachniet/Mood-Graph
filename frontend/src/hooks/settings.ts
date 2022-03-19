@@ -1,5 +1,5 @@
-import { ClientUserSettings, ServerUserSettings } from '../../types/settings';
-import { getInitialUserSettings } from '../settings';
+import { ClientUserSettings, ServerUserSettings } from '../types/settings';
+import { getInitialUserSettings } from '../utils/settings';
 import { useAuthenticatedDocumentData, useDefaultAuthState } from './firebase';
 import { usePixels } from './pixels';
 import { doc, getFirestore, setDoc } from 'firebase/firestore';

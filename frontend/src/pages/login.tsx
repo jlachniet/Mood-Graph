@@ -1,7 +1,7 @@
 import GoogleLogo from '../../public/images/google-logo.svg';
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
-import { useDefaultAuthState } from '../utils/hooks/firebase';
+import { useDefaultAuthState } from '../hooks/firebase';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import Router from 'next/router';
 import { useEffect } from 'react';

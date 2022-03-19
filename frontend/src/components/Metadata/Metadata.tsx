@@ -1,5 +1,5 @@
+import { useThemeContext } from '../../hooks/theme';
 import { RelativeUrl } from '../../types/url';
-import { useThemeContext } from '../../utils/hooks/theme';
 import Head from 'next/head';
 import { WebApplication, WithContext } from 'schema-dts';
 

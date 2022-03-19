@@ -1,7 +1,7 @@
 import { Navbar } from '../components/Navbar/Navbar';
+import { ThemeContext, useThemeState } from '../hooks/theme';
 import '../styles/globals.css';
 import { initializeFirebase } from '../utils/firebase';
-import { ThemeContext, useThemeState } from '../utils/hooks/theme';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 

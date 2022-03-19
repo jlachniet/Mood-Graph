@@ -1,4 +1,4 @@
-import { Theme } from '../../types/theme';
+import { Theme } from '../types/theme';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 export const ThemeContext = createContext<{

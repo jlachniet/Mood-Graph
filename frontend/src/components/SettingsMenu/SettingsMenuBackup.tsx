@@ -1,6 +1,6 @@
+import { usePixels } from '../../hooks/pixels';
 import { SettingsMenuState } from '../../types/settings';
 import { saveJSON } from '../../utils/files';
-import { usePixels } from '../../utils/hooks/pixels';
 import { getCurrentDateString } from '../../utils/time';
 import { Button } from '../Form/Button';
 import { useEffect, useState } from 'react';

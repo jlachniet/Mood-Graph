@@ -1,7 +1,7 @@
 import Logo from '../../../public/icons/icon-responsive.svg';
-import { useDefaultAuthState } from '../../utils/hooks/firebase';
-import { useThemeContext } from '../../utils/hooks/theme';
-import { useWindowSize } from '../../utils/hooks/window';
+import { useDefaultAuthState } from '../../hooks/firebase';
+import { useThemeContext } from '../../hooks/theme';
+import { useWindowSize } from '../../hooks/window';
 import { NavbarLink } from './NavbarLink';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';

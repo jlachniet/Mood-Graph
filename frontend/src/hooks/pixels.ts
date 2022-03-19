@@ -1,4 +1,4 @@
-import { Pixel, PixelValue } from '../../types/pixels';
+import { Pixel, PixelValue } from '../types/pixels';
 import {
 	useAuthenticatedCollectionData,
 	useDefaultAuthState,

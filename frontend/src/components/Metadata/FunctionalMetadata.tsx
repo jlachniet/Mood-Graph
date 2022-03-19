@@ -1,4 +1,4 @@
-import { useThemeContext } from '../../utils/hooks/theme';
+import { useThemeContext } from '../../hooks/theme';
 import Head from 'next/head';
 
 export function FunctionalMetadata(props: { title: string }) {

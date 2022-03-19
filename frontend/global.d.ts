@@ -1,4 +1,3 @@
-
 /**
  * Global type declarations.
  */
@@ -43,9 +42,9 @@ export declare global {
 
 	/**
 	 * Whether to disable Workbox logging.
-	 * @remarks Needs to be `var` here, not `let` or `const`.
-	 * @see https://stackoverflow.com/questions/59459312/using-globalthis-in-typescript
 	 */
+	// Needs to be "var" here, not "let" or "const".
+	// https://stackoverflow.com/questions/59459312/using-globalthis-in-typescript
 	// eslint-disable-next-line no-var
 	var __WB_DISABLE_DEV_LOGS: boolean | undefined;
 }

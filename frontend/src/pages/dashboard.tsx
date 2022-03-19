@@ -4,11 +4,11 @@ import { Button } from '../components/Form/Button';
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
 import { SettingsMenu } from '../components/SettingsMenu/SettingsMenu';
+import { useAuthenticatedRoute } from '../hooks/firebase';
+import { usePixels } from '../hooks/pixels';
+import { useSettings } from '../hooks/settings';
 import { Pixel } from '../types/pixels';
 import { SettingsMenuState } from '../types/settings';
-import { useAuthenticatedRoute } from '../utils/hooks/firebase';
-import { usePixels } from '../utils/hooks/pixels';
-import { useSettings } from '../utils/hooks/settings';
 import { useState } from 'react';
 
 export default function Dashboard() {

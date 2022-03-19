@@ -2,10 +2,7 @@ import { Button } from '../components/Form/Button';
 import { LinkButton } from '../components/Form/LinkButton';
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
-import {
-	useAuthenticatedRoute,
-	useDefaultAuthState,
-} from '../utils/hooks/firebase';
+import { useAuthenticatedRoute, useDefaultAuthState } from '../hooks/firebase';
 import Router from 'next/router';
 
 export default function DeleteAccount() {

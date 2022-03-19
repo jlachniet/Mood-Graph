@@ -13,6 +13,7 @@ export default withPWA({
 	},
 	pwa: {
 		dest: 'public',
+		customWorkerDir: './src/worker',
 	},
 	eslint: {
 		dirs: ['src'],

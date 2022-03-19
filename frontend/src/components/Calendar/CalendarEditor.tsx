@@ -1,5 +1,5 @@
+import { usePixels } from '../../hooks/pixels';
 import { Pixel, PixelSelector, PixelValue } from '../../types/pixels';
-import { usePixels } from '../../utils/hooks/pixels';
 import { PIXEL_COLORS } from '../../utils/pixels';
 import { BsX, BsXOctagonFill } from 'react-icons/bs';
 
