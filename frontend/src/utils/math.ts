@@ -1,7 +1,7 @@
 import { MovingAverageOption } from '../types/math';
 import { mean } from 'lodash';
 
-export const MOVING_AVERAGE_OPTIONS: MovingAverageOption[] = [
+export const PRESET_MOVING_AVERAGE_OPTIONS: MovingAverageOption[] = [
 	{
 		title: 'Default (No averaging)',
 		windowSize: 1,

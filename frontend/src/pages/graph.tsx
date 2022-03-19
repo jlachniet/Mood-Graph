@@ -4,7 +4,7 @@ import { useAuthenticatedRoute } from '../hooks/firebase';
 import { usePixels } from '../hooks/pixels';
 import { useThemeContext } from '../hooks/theme';
 import { MovingAverageOption } from '../types/math';
-import { getMovingAverage, MOVING_AVERAGE_OPTIONS } from '../utils/math';
+import { getMovingAverage, PRESET_MOVING_AVERAGE_OPTIONS } from '../utils/math';
 import { getCurrentDateString, getDateStringRange } from '../utils/time';
 import {
 	CategoryScale,
@@ -27,8 +27,12 @@ export default function Graph() {
 	const { theme } = useThemeContext();
 
 	const [graphOptions, setGraphOptions] = useState<MovingAverageOption[]>([]);
-	const [selectedGraphOption, setSelectedGraphOption] =
-		useState<MovingAverageOption | null>(null);
+	const [selectedGraphOption, setSelectedGraphOption] = useState<number | null>(
+		null
+	);
+
+	const [formCustomWindowSize, setFormCustomWindowSize] = useState('1');
+	const [customWindowSize, setCustomWindowSize] = useState(1);
 
 	const [graphData, setGraphData] = useState<ChartData<'line'> | null>(null);
 
@@ -86,8 +90,9 @@ export default function Graph() {
 		if (pixels) {
 			const oldOptionsLength = graphOptions.length;
 
-			const options = [...MOVING_AVERAGE_OPTIONS].filter(
-				(option) => option.windowSize <= pixels.length
+			const options = [...PRESET_MOVING_AVERAGE_OPTIONS].filter(
+				(option) =>
+					typeof option === 'string' || option.windowSize <= pixels.length
 			);
 
 			const autoWindowSize = Math.max(
@@ -102,16 +107,21 @@ export default function Graph() {
 				});
 			}
 
+			options.push({
+				title: 'Custom',
+				windowSize: customWindowSize,
+			});
+
 			setGraphOptions(options);
 
 			if (oldOptionsLength !== options.length) {
-				setSelectedGraphOption(options[0]);
+				setSelectedGraphOption(0);
 			}
 		}
-	}, [pixels, graphOptions.length]);
+	}, [pixels, graphOptions.length, customWindowSize]);
 
 	useEffect(() => {
-		if (pixels && graphOptions && selectedGraphOption) {
+		if (pixels && graphOptions && selectedGraphOption !== null) {
 			const graphDates = getDateStringRange(
 				pixels[0]?.dateString ?? getCurrentDateString(),
 				pixels[pixels.length - 1]?.dateString ?? getCurrentDateString()
@@ -123,23 +133,33 @@ export default function Graph() {
 						pixels.find((pixel) => pixel.dateString === dateString)?.value ??
 						null
 				),
-				selectedGraphOption.windowSize,
-				selectedGraphOption.windowSize / 2
+				graphOptions[selectedGraphOption].windowSize,
+				graphOptions[selectedGraphOption].windowSize / 2
 			);
 
 			setGraphData({
 				labels: graphDates,
 				datasets: [
 					{
-						label: `Daily Mood (Averaged over ${selectedGraphOption.windowSize} days)`,
 						data: graphValues,
 						borderColor: '#8b5cf6',
-						backgroundColor: '#8b5cf6',
 					},
 				],
 			});
 		}
 	}, [pixels, graphOptions, selectedGraphOption]);
+
+	useEffect(() => {
+		const parsedFormCustomWindowSize = parseInt(formCustomWindowSize);
+
+		if (
+			Number.isInteger(parsedFormCustomWindowSize) &&
+			parsedFormCustomWindowSize >= 1 &&
+			parsedFormCustomWindowSize <= 99999
+		) {
+			setCustomWindowSize(parsedFormCustomWindowSize);
+		}
+	}, [formCustomWindowSize]);
 
 	useEffect(() => {
 		Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
@@ -152,20 +172,18 @@ export default function Graph() {
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
 					<main className="flex w-full max-w-xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
 						<h1 className="mb-4 font-display text-3xl font-extrabold">Graph</h1>
-						{graphData && selectedGraphOption ? (
+						{graphData && selectedGraphOption !== null ? (
 							<>
-								<div>
+								<div className="mb-2">
 									<label htmlFor="averaging-options" className="mr-2">
 										Graph mode:
 									</label>
 									<select
 										id="averaging-options"
-										className="mb-3 w-fit rounded-lg border border-neutral-700 bg-neutral-50 px-1 py-0.5 shadow dark:border-transparent dark:bg-neutral-600"
-										value={graphOptions.indexOf(selectedGraphOption)}
+										className="w-fit rounded-lg border border-neutral-700 bg-neutral-50 px-1 py-0.5 shadow dark:border-transparent dark:bg-neutral-600"
+										value={selectedGraphOption}
 										onChange={(event) => {
-											setSelectedGraphOption(
-												graphOptions[parseInt(event.target.value)]
-											);
+											setSelectedGraphOption(parseInt(event.target.value));
 										}}
 									>
 										{graphOptions.map((option, index) => (
@@ -175,6 +193,25 @@ export default function Graph() {
 										))}
 									</select>
 								</div>
+								{graphOptions[selectedGraphOption].title === 'Custom' && (
+									<div className="mb-2">
+										<label htmlFor="window-size" className="mr-2">
+											Days to average over:
+										</label>
+										<input
+											id="window-size"
+											type="number"
+											className="w-20 rounded-lg border border-neutral-700 bg-neutral-50 px-2 py-0.5"
+											value={formCustomWindowSize}
+											min={1}
+											max={99999}
+											onChange={(event) => {
+												const newWindowSize = event.target.value;
+												setFormCustomWindowSize(newWindowSize);
+											}}
+										/>
+									</div>
+								)}
 								<div>
 									<Line
 										key="dark"

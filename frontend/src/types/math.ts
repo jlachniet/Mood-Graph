@@ -1,7 +1,7 @@
 /**
  * An option for how the graph should average pixels.
  */
-export type MovingAverageOption = {
+export interface MovingAverageOption {
 	/**
 	 * The title of the option.
 	 */
@@ -10,4 +10,4 @@ export type MovingAverageOption = {
 	 * The window size of the moving average.
 	 */
 	windowSize: number;
-};
+}

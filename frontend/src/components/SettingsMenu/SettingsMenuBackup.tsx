@@ -51,9 +51,16 @@ export function SettingsMenuBackup(props: {
 				/>
 			</label>
 			<Button
-				onClick={() =>
-					saveJSON(`Mood Graph Backup (${getCurrentDateString()}).json`, pixels)
-				}
+				onClick={() => {
+					if (!pixels) {
+						throw new Error('Tried to export data without pixels');
+					}
+
+					saveJSON(
+						`Mood Graph Backup (${getCurrentDateString()}).json`,
+						pixels
+					);
+				}}
 				background="bg-sky-500"
 				color="text-neutral-100"
 			>
