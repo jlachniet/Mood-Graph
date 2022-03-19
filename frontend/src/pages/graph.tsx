@@ -1,6 +1,6 @@
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
-import { PageHeading } from '../components/Text/PageHeading';
+import { Heading } from '../components/Text/Heading';
 import { useAuthenticatedRoute } from '../hooks/firebase';
 import { usePixels } from '../hooks/pixels';
 import { useThemeContext } from '../hooks/theme';
@@ -162,9 +162,7 @@ export default function Graph() {
 		}
 	}, [formCustomWindowSize]);
 
-	useEffect(() => {
-		Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
-	}, []);
+	Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
 
 	return (
 		<>
@@ -172,7 +170,7 @@ export default function Graph() {
 			{pixels && graphOptions.length > 0 ? (
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
 					<main className="flex w-full max-w-2xl flex-col rounded-md bg-neutral-50 px-2 py-4 text-center shadow dark:bg-neutral-800">
-						<PageHeading className="mb-4">Graph</PageHeading>
+						<Heading className="mb-4">Graph</Heading>
 						{graphData && selectedGraphOption !== null && pixels.length >= 2 ? (
 							<>
 								<div className="mb-2">

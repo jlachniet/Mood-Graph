@@ -1,5 +1,5 @@
 import { FunctionalMetadata } from '../components/Metadata/FunctionalMetadata';
-import { PageHeading } from '../components/Text/PageHeading';
+import { Heading } from '../components/Text/Heading';
 import Link from 'next/link';
 import Router from 'next/router';
 import { useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ export default function Error404() {
 			<div className="flex h-screenheightminusdoublenavbar items-center justify-center">
 				<main className="px-4 text-center">
 					<div className="mx-auto mb-4 flex w-fit items-center">
-						<PageHeading className="mr-3">Error 404</PageHeading>
+						<Heading className="mr-3">Error 404</Heading>
 						<BsSearch className="h-6 w-6" />
 					</div>
 					<h2 className="mb-6">

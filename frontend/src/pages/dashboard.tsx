@@ -4,7 +4,7 @@ import { Button } from '../components/Form/Button';
 import { LoadingIcon } from '../components/LoadingIcon';
 import { Metadata } from '../components/Metadata/Metadata';
 import { SettingsMenu } from '../components/SettingsMenu/SettingsMenu';
-import { PageHeading } from '../components/Text/PageHeading';
+import { Heading } from '../components/Text/Heading';
 import { useAuthenticatedRoute } from '../hooks/firebase';
 import { usePixels } from '../hooks/pixels';
 import { useSettings } from '../hooks/settings';
@@ -55,7 +55,7 @@ export default function Dashboard() {
 				<div className="flex max-h-screenheightminusnavbar justify-center p-4">
 					<div className="flex w-full max-w-xl flex-col rounded-md bg-transparent text-center shadow">
 						<header className="z-10 rounded-t-md bg-violet-400 px-6 py-4 shadow dark:bg-violet-800">
-							<PageHeading className="mb-2">Dashboard</PageHeading>
+							<Heading className="mb-2">Dashboard</Heading>
 							<Button
 								background="bg-sky-300"
 								color="text-neutral-800"
