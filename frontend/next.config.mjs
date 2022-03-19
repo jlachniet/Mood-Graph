@@ -14,6 +14,7 @@ export default withPWA({
 	pwa: {
 		dest: 'public',
 		customWorkerDir: './src/worker',
+		disable: process.env.NODE_ENV === 'development',
 	},
 	eslint: {
 		dirs: ['src'],
