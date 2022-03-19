@@ -45,7 +45,7 @@ function groupPixelsByMonth(pixels: Pixel[]): PixelMonth[] {
 
 /**
  * Converts an array of pixels and a date range into an array of
- * {@link PixelYear PixelYears}, and adds empty pixels to fill the range as
+ * {@link PixelYear pixel years}, and adds empty pixels to fill the range as
  * needed.
  * @param pixels The pixels.
  * @param startDateString The first date in the range.

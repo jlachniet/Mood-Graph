@@ -4,7 +4,7 @@ import { hasProperty, isArrayOf } from './utils';
 import { isNull, isObject } from './utils';
 
 /**
- * Checks whether a value is an array of pixels.
+ * Checks whether a value is an array of {@link Pixel pixels}.
  * @param value The value to check.
  * @returns Whether the value is an array of pixels.
  */
@@ -13,7 +13,7 @@ export function isPixelArray(value: unknown): value is Pixel[] {
 }
 
 /**
- * Checks whether a value is a pixel.
+ * Checks whether a value is a {@link Pixel pixel}.
  * @param value The value to check.
  * @returns Whether the value is a pixel.
  */
@@ -27,7 +27,7 @@ function isPixel(value: unknown): value is Pixel {
 }
 
 /**
- * Checks whether a value is a date string.
+ * Checks whether a value is a {@link DateString date string}.
  * @param value The value to check.
  * @returns Whether the value is a date string.
  */
@@ -36,7 +36,7 @@ export function isDateString(value: unknown): value is DateString {
 }
 
 /**
- * Checks whether a value is a pixel value.
+ * Checks whether a value is a {@link PixelValue pixel value}.
  * @param value The value to check.
  * @returns Whether the value is a pixel value.
  */

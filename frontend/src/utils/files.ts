@@ -1,6 +1,11 @@
-export function saveJSON(fileName: string, content: unknown) {
+/**
+ * Saves an object to a JSON file.
+ * @param fileName The name of the file.
+ * @param object The content of the file.
+ */
+export function saveJSON(fileName: string, object: object) {
 	const element = document.createElement('a');
-	const blob = new Blob([JSON.stringify(content)], {
+	const blob = new Blob([JSON.stringify(object)], {
 		type: 'application/json',
 	});
 

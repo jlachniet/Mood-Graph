@@ -23,7 +23,7 @@ export function useAuthenticatedRoute() {
 }
 
 /**
- * Gets the useAuthState hook using the default Firebase auth.
+ * Gets the default Firebase auth state.
  * @returns The hook.
  */
 export function useDefaultAuthState() {

@@ -11,7 +11,7 @@ export function FunctionalMetadata(props: { title: string }) {
 			<meta name="color-scheme" content={theme} />
 			<meta
 				name="theme-color"
-				content={theme === 'dark' ? '#262626' : '#f5f5f5'}
+				content={theme === 'light' ? '#f5f5f5' : '#262626'}
 			/>
 
 			<link rel="icon" href="/icons/icon-32x32.png" sizes="32x32" />

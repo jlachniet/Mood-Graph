@@ -46,7 +46,7 @@ export default function Graph() {
 						lineWidth: 2,
 					},
 					ticks: {
-						color: theme === 'dark' ? '#fafafa' : '#171717',
+						color: theme === 'light' ? '#171717' : '#fafafa',
 						font: {
 							family: 'Inter',
 							size: 13,
@@ -62,7 +62,7 @@ export default function Graph() {
 						lineWidth: 2,
 					},
 					ticks: {
-						color: theme === 'dark' ? '#f5f5f5' : '#262626',
+						color: theme === 'light' ? '#262626' : '#f5f5f5',
 						font: {
 							family: 'Inter',
 							size: 13,

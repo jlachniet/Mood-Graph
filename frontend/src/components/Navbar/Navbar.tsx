@@ -74,15 +74,15 @@ export function Navbar() {
 					</div>
 				</div>
 				<button className="ml-3 border-neutral-400">
-					{theme === 'dark' ? (
-						<BsMoonFill
-							onClick={() => setTheme('light')}
-							className="h-5 w-5 fill-sky-300 p-0.5 transition-filter duration-75 hover:brightness-50"
-						/>
-					) : (
+					{theme === 'light' ? (
 						<BsBrightnessHighFill
 							onClick={() => setTheme('dark')}
 							className="h-5 w-5 fill-yellow-500 transition-filter duration-75 hover:brightness-50"
+						/>
+					) : (
+						<BsMoonFill
+							onClick={() => setTheme('light')}
+							className="h-5 w-5 fill-sky-300 p-0.5 transition-filter duration-75 hover:brightness-50"
 						/>
 					)}
 				</button>

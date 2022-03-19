@@ -110,10 +110,13 @@ export function getLastDateStringOfMonth(dateString: DateString): DateString {
 	return (dateString.substring(0, 8) + numberOfDaysInMonth) as DateString;
 }
 
+/**
+ * Gets a promise that resolves after a given number of seconds.
+ * @param seconds The number of seconds before the promise resolves.
+ * @returns The promise.
+ */
 export function sleep(seconds: number) {
-	return new Promise<void>((resolve) => {
-		setTimeout(resolve, seconds * 1000);
-	});
+	return new Promise<void>((resolve) => setTimeout(resolve, seconds * 1000));
 }
 
 /**

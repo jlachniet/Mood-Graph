@@ -29,6 +29,9 @@ export function isString(value: unknown): value is string | undefined {
  * Checks whether a value is an object.
  * @param value The value to check.
  * @returns Whether the value is an object.
+ * @remarks Returns a record so that if a value matches this predicate, it is
+ * possible to check any arbitrary property of the object without TypeScript
+ * throwing an error.
  */
 export function isObject(value: unknown): value is Record<string, unknown> {
 	return (
@@ -40,16 +43,15 @@ export function isObject(value: unknown): value is Record<string, unknown> {
  * Checks whether an object has a property that matches a given predicate.
  * @param object The object to check.
  * @param key The key of the property to check.
- * @param predicate The guard to check the property with.
- * @returns Whether the object has the property and the property is of the
- * correct type.
+ * @param predicate A type guard to check the value of the property against.
+ * @returns Whether the object has the property of the correct type.
  */
-export function hasProperty<K extends string, T>(
-	object: object,
-	key: K,
-	predicate: (value: unknown) => value is T
-): object is { [P in K]: T } {
-	return isObject(object) && predicate(object[key]);
+export function hasProperty<Key extends string, Type>(
+	object: Record<string, unknown>,
+	key: Key,
+	predicate: (value: unknown) => value is Type
+): object is { [K in Key]: Type } {
+	return predicate(object[key]);
 }
 
 /**
@@ -57,30 +59,26 @@ export function hasProperty<K extends string, T>(
  * undefined.
  * @param object The object to check.
  * @param key The key of the property to check.
- * @param predicate The guard to check the property with.
- * @returns Whether the object has the property and the property is of the
- * correct type or is undefined.
+ * @param predicate A type guard to check the value of the property against.
+ * @returns Whether the object has the property of the correct type.
  */
-export function hasOptionalProperty<K extends string, T>(
-	object: unknown,
-	key: K,
-	predicate: (value: unknown) => value is T
-): object is { [P in K]: T | undefined } {
-	return (
-		isObject(object) && (isUndefined(object[key]) || predicate(object[key]))
-	);
+export function hasOptionalProperty<Key extends string, Type>(
+	object: Record<string, unknown>,
+	key: Key,
+	predicate: (value: unknown) => value is Type
+): object is { [K in Key]: Type | undefined } {
+	return isUndefined(object[key]) || predicate(object[key]);
 }
 
 /**
- * Checks whether a value is an array where all elements match a given
- * predicate.
+ * Checks whether a value is an array of elements that match a given predicate.
  * @param value The value to check.
- * @param predicate The guard to check the values with.
- * @returns Whether the value is an array of the correct type.
+ * @param predicate A type guard to check each element against.
+ * @returns Whether the value is an array of elements of the correct type.
  */
-export function isArrayOf<T>(
+export function isArrayOf<Type>(
 	value: unknown,
-	guard: (value: unknown) => value is T
-): value is T[] {
-	return Array.isArray(value) && value.every(guard);
+	predicate: (value: unknown) => value is Type
+): value is Type[] {
+	return Array.isArray(value) && value.every(predicate);
 }
