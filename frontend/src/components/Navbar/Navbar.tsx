@@ -87,8 +87,8 @@ export function Navbar() {
 					)}
 				</button>
 				<Link href="https://github.com/jlachniet/Mood-Graph">
-					<a>
-						<SiGithub className="ml-3 h-5 w-5 hover:contrast-50" />
+					<a className="ml-3 flex items-center">
+						<SiGithub className="h-5 w-5 hover:contrast-50" />
 					</a>
 				</Link>
 			</div>
