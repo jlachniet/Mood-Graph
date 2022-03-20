@@ -1,5 +1,6 @@
 import { usePixels } from '../../hooks/pixels';
 import { Pixel, PixelSelector } from '../../types/pixels';
+import { mergeElementProps } from '../../utils/components';
 import { PIXEL_COLORS } from '../../utils/pixels';
 import { BsX, BsXOctagonFill } from 'react-icons/bs';
 
@@ -29,23 +30,26 @@ export function CalendarEditor(props: {
 			<ul className="flex border border-neutral-600 shadow dark:border-neutral-400">
 				{([null, 1, 2, 3, 4, 5] as const).map((option) => (
 					<li key={option ?? 'null'}>
-						<button
-							className={`flex h-11 w-11 items-center justify-center transition-filter duration-75 hover:brightness-110 dark:text-neutral-800 ${
-								PIXEL_COLORS[option ?? 'null']
-							} ${
-								props.selectedPixel.value === option
-									? 'border-b-2 border-neutral-900 dark:border-neutral-50'
-									: ''
-							}`}
-							onClick={() => {
-								updatePixel(props.selectedPixel.dateString, option);
-								props.setSelectedPixel(null);
-							}}
-						>
-							{option ?? (
-								<BsXOctagonFill className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100" />
-							)}
-						</button>
+						{mergeElementProps(
+							<button
+								className="flex h-11 w-11 items-center justify-center transition-filter duration-75 hover:brightness-110 dark:text-neutral-800"
+								onClick={() => {
+									updatePixel(props.selectedPixel.dateString, option);
+									props.setSelectedPixel(null);
+								}}
+							>
+								{option ?? (
+									<BsXOctagonFill className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100" />
+								)}
+							</button>,
+							{
+								className: `${PIXEL_COLORS[option ?? 'null']} ${
+									props.selectedPixel.value === option
+										? 'border-b-2 border-neutral-900 dark:border-neutral-50'
+										: ''
+								}`,
+							}
+						)}
 					</li>
 				))}
 			</ul>

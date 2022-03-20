@@ -52,7 +52,7 @@ export default function Home() {
 						</Link>
 						, and is deployed through Vercel.
 					</p>
-					<div className="mx-auto mb-4 w-fit rounded-md bg-neutral-200 px-4 py-3 shadow-sm shadow-black/50 transition-transform hover:scale-101 dark:bg-neutral-700">
+					<div className="mx-auto mb-4 w-fit rounded-md bg-neutral-200 px-4 py-3 shadow-sm shadow-black/50 dark:bg-neutral-700">
 						<h2 className="font-display font-semibold">How it works:</h2>
 						<ol className="ml-4 list-decimal">
 							<li>Set up daily reminders on your device</li>
